@@ -1,0 +1,87 @@
+/**index.wxss**/
+
+page {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.current-container {
+  padding-top: 20rpx;
+  width: 750rpx;
+}
+
+.next-container {
+  width: 750rpx;
+  margin: 16rpx;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  padding: 20rpx;
+}
+
+.button {
+  margin: 20rpx;
+}
+
+.history-container {
+  width: 750rpx;
+  margin-top: 40rpx;
+}
+
+.history-card {
+  background-color: #fff;
+  margin: 20rpx 40rpx;
+  border-radius: 5px;
+  padding: 20rpx;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+}
+
+.history-card-title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+}
+
+.history-text-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.next-text-container {
+  display: flex;
+}
+
+.next-text {
+  margin-left: 5rpx;
+}
+
+.next-position-button {
+  margin: 40rpx;
+}
+
+.help-container {
+  font-size: 30rpx;
+  display: flex;
+  width: 750rpx;
+  align-items: center;
+  padding-left: 70rpx;
+  padding-top: 20rpx;
+}
+
+.pic-container {
+  width: 750rpx;
+  margin-top: 60rpx;
+  text-align: center;
+}
+
+.add-egg {
+  height: 80rpx;
+}
+
+.next-text-image {
+  width: 30rpx;
+}

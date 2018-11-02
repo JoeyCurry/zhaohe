@@ -1,0 +1,111 @@
+<!--index.wxml-->
+<view class="container" wx:if="{{!loading}}">
+
+  <view bindtap='help' class="help-container">
+    <image style="height: 30rpx;width: 30rpx;margin-right: 5rpx" src='../../images/Help.png' mode="aspectFit"></image>
+    <text>使用说明</text>
+  </view>
+  <view class="current-container">
+    <text style="margin-left: 40rpx">添加一个蛋蛋</text>
+    <view class="button-container" wx:if="{{currentIndex === -1}}">
+      <!-- <button plain='true' style="{{'border: 1px solid ' + eggColor[1] + '; color: ' + eggColor[1]}}" bindtap="addEgg" data-type="1"  class="button">绿</button>
+      <button bindtap='addEgg' style="{{'border: 1px solid ' + eggColor[2] + '; color: ' + eggColor[2]}}" plain data-type="2" class="button blue">蓝</button>
+      <button bindtap='addEgg' style="{{'border: 1px solid ' + eggColor[3] + '; color: ' + eggColor[3]}}" plain data-type="3" class="button purple">紫</button>
+      <button bindtap='addEgg' plain style="{{'border: 1px solid ' + eggColor[4] + '; color: ' + eggColor[4]}}" data-type="4" class="button red">橙</button>
+      <button bindtap='addEgg' plain style="{{'border: 1px solid ' + eggColor[5] + '; color: ' + eggColor[5]}}" data-type="5" class="button red">红</button> -->
+      <image src="../../images/green.png" bindtap="addEgg" data-type="1" mode="aspectFit" class="add-egg"></image>
+      <image src="../../images/blue.png" bindtap="addEgg" data-type="2" mode="aspectFit" class="add-egg"></image>
+      <image src="../../images/purple.png" bindtap="addEgg" data-type="3" mode="aspectFit" class="add-egg"></image>
+      <image src="../../images/orange.png" bindtap="addEgg" data-type="4" mode="aspectFit" class="add-egg"></image>
+      <image src="../../images/red.png" bindtap="addEgg" data-type="5" mode="aspectFit" class="add-egg"></image>
+    </view>
+    <view wx:else>
+      
+      <button style="{{'border: 1px solid ' + eggColor[eggArr[(nextIndex -1)]] + '; color: ' + eggColor[eggArr[nextIndex - 1]]}}" class="next-position-button" plain='true' bindtap='next' >NEXT</button>
+    </view>
+  </view>
+
+  <view class="next-container">
+    <view style='display:flex'>
+      <text style="margin-left: 40rpx; padding-right: 20rpx">预估下一个蛋蛋:</text>
+      <view class="next-text-container" wx:if="{{nextEgg.length !== 0}}">
+        <view 
+          wx:for="{{nextEgg}}"
+          wx:key="index"
+          class="next-text"
+          style="{{'color:' + eggColor[item]}}">
+          {{egg[item]}}
+        </view>
+        <!-- <view wx:for="{{nextEgg}}" wx:key="index">
+          <image 
+            wx:if="item !== -1 || item !== 0"
+            class="next-text-image"
+            src="{{eggSrc[item]}}"
+            mode="widthFix" >
+          </image>
+          <view wx:else>{{egg[item]}}</view>
+        </view> -->
+        <view wx:if="{{nextEgg.length === 0}}">暂无数据</view>
+      </view>
+    </view>
+    <text wx:if="{{nextEgg.length > 1}}" style="font-size: 30rpx;color: #ccc;margin-left: 40rpx">根据当前数据无法绝对定位</text>
+  </view>
+
+
+  <view wx:if="{{currentIndex !== -1}}" class="next-container">
+    <view style='display:flex'>
+      <text style="margin-left: 40rpx; padding-right: 20rpx">当前位置:</text>
+      <text style="{{'color: ' + eggColor[eggArr[currentIndex - 1]]}}">{{currentIndex}}</text>
+      <text style="{{'color: ' + eggColor[eggArr[currentIndex - 1]] + '; margin-left: 5rpx'}}">{{'(' + egg[eggArr[currentIndex - 1]] + '蛋)'}}</text>
+      <view class="next-text-container">
+        <view wx:if="{{currentIndex === -1}}">暂无数据</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="next-container">
+      <button style="margin-left: 40rpx;" bindtap='openDialog' plain size='mini'>手动设置位置</button>
+      <button wx:if="{{currentIndex !== -1}}" style="margin-left: 40rpx;" bindtap='popEgg' plain size='mini'>删除上个蛋蛋</button>
+  </view>
+
+  <view class="history-container" wx:if="{{currentIndex === -1}}">
+    <text style="margin-left: 40rpx">历史记录：</text>
+    <view wx:if="{{historyArr[0].length}}" style="display: flex;flex-direction: column-reverse;">
+      <view 
+          wx:for="{{historyArr}}" 
+          wx:for-item="itemName"
+          wx:key="index"
+          class="history-card">
+          <view>
+            <view class="history-card-title">
+              <text>Round: {{index + 1}}</text>
+              <text bindtap='delEgg' wx:if="{{index === (historyArr.length - 1) && itemName.length}}">删除</text>
+            </view>
+            <view class="history-text-content">
+              <view 
+                wx:for="{{itemName}}" 
+                wx:key="index"
+                class="history-text"
+                style="{{'color: ' + eggColor[item]}}">
+                {{egg[item]}}
+              </view>
+            </view>
+          </view>
+      </view>
+    </view>
+    <text wx:if="{{historyArr[0].length === 0}}">暂无数据</text>
+  </view>
+    
+  <modal hidden="{{hiddenmodalput}}" title="手动设置位置" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">  
+      <input type='number' bindinput="bindKeyInput" placeholder="请输入位置" maxlength="3" focus />
+      <view>请保证您自己估算位置的准确性，位置范围为1~155（注意：将清空当前历史记录蛋蛋），输入0即为清空位置</view>
+  </modal>
+
+  <view class="pic-container">
+    <image style="width: 700rpx;" src='../../images/pic.png' mode='widthFix'></image>
+  </view>
+
+</view>
+<view class="container" wx:else>
+  <text style="margin-top: 300rpx">正在获取数据...</text>
+</view>
