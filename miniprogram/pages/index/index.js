@@ -175,7 +175,7 @@ Page({
   help() {
     wx.showModal({
       title: '使用说明',
-      content: '用于召唤与合成记录垫刀，有两种方式预估，一是添加当前蛋蛋的颜色，然后进行预估，预估结果可能会有多个；二是手动设置位置，只要你自己估计的位置是对的，那么预估结果一定是对的；\n 如需帮助，请联系我，把你的id带上,你的id是 ' + this.data.DB_id ,
+      content: '用于召唤与合成记录垫刀，有两种方式预估，一是添加当前蛋蛋的颜色，然后进行预估，预估结果可能会有多个；二是手动设置位置，只要你自己估计的位置是对的，那么预估结果一定是对的；\n 如需帮助，请联系我，把你的id带上,你的id是 ' + this.data.DB_id + '；当然了，最后环节，我的邀请码：10110031，随缘',
       showCancel: false
     })
   },
@@ -255,7 +255,8 @@ Page({
       },
       success: res => {
         this.setData({
-          DB_id: res._id
+          DB_id: res._id,
+          loading: false
         })
         console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id)
       },
@@ -276,30 +277,38 @@ Page({
       _openid: app.globalData.openid
     }).get({
       success: res => {
-        if (res.data[0].currentIndex === -1) {
-          this.predict(res.data[0].historyArr[res.data[0].historyArr.length - 1])
-          this.setData({
-            historyArr: res.data[0].historyArr,
-            currentIndex: res.data[0].currentIndex,
-            nextIndex: -1,
-            DB_id: res.data[0]._id,
-            loading: false
-          })
+        console.log('onQueryDB' , res)
+        if (res.data.length) {
+          if (res.data[0].currentIndex === -1) {
+            this.predict(res.data[0].historyArr[res.data[0].historyArr.length - 1])
+            this.setData({
+              historyArr: res.data[0].historyArr,
+              currentIndex: res.data[0].currentIndex,
+              nextIndex: -1,
+              DB_id: res.data[0]._id,
+              loading: false
+            })
+          } else {
+            let nextIndex = res.data[0].currentIndex === 155 ? 1 : res.data[0].currentIndex + 1
+            this.setData({
+              historyArr: res.data[0].historyArr,
+              currentIndex: res.data[0].currentIndex,
+              nextIndex,
+              nextEgg: nextIndex === -1 ? [-1] : [eggArr[nextIndex - 1]],
+              DB_id: res.data[0]._id,
+              loading: false
+            })
+          }
         } else {
-          let nextIndex = res.data[0].currentIndex === 155 ? 1 : res.data[0].currentIndex + 1
-          this.setData({
-            historyArr: res.data[0].historyArr,
-            currentIndex: res.data[0].currentIndex,
-            nextIndex,
-            nextEgg: nextIndex === -1 ? [-1] : [eggArr[nextIndex - 1]],
-            DB_id: res.data[0]._id,
-            loading: false
-          })
+          this.onDBCreate()
         }
         console.log('[数据库] [查询] 成功，记录: ', res)
       },
       fail: res => {
-        this.onDBCreate()
+        wx.showToast({
+          title: '读取数据库失败，请咨询我',
+        })
+        console.log('onQueryDB: fail')
       }
     })
   },

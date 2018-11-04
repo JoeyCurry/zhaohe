@@ -97,7 +97,7 @@
   </view>
     
   <modal hidden="{{hiddenmodalput}}" title="手动设置位置" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">  
-      <input type='number' bindinput="bindKeyInput" placeholder="请输入位置" maxlength="3" focus />
+      <input type='number' bindinput="bindKeyInput" placeholder="请输入位置" maxlength="3" />
       <view>请保证您自己估算位置的准确性，位置范围为1~155（注意：将清空当前历史记录蛋蛋），输入0即为清空位置</view>
   </modal>
 
@@ -107,5 +107,8 @@
 
 </view>
 <view class="container" wx:else>
-  <text style="margin-top: 300rpx">正在获取数据...</text>
+  <text style="margin-top: 200rpx">正在获取数据...</text>
+  <view style="margin-top: 50rpx">恭喜获得炮姐，走上人生巅峰</view>
+  <text style="font-size: 20rpx">然鹅我还没有 (╯°Д°)╯︵ ┻━┻</text>
+  <image src="../../images/wechat_share37.png" mode="widthFix" style="width:650rpx;margin-top: 20rpx" ></image>
 </view>
