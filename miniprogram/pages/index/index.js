@@ -37,7 +37,8 @@ Page({
     hiddenmodalput: true,
     inputValue: '',
     eggArr: eggArr,
-    loading: true
+    loading: true,
+    total: 0
   },
 
   onLoad: function() {
@@ -70,11 +71,23 @@ Page({
   addEgg: function(e) {
     let type = e.currentTarget.dataset.type
     let historyArr = this.data.historyArr
-    historyArr[historyArr.length - 1].push(type)
-    console.log(historyArr)
+    let eggsStr = eggArr.join('')
+    let arrStr = historyArr[historyArr.length - 1].join('')
+    if (eggsStr.indexOf(arrStr)) {
+      let predictStr = eggsStr.split(arrStr)
+      if (predictStr.length === 2 && predictStr[1] === '') {
+        historyArr.push([type])
+      } else {
+        historyArr[historyArr.length - 1].push(type)
+      }
+    } else {
+      historyArr[historyArr.length - 1].push(type)
+    }
     this.predict(historyArr[historyArr.length - 1])
+    let total = this.sumEgg(historyArr)
     this.setData({
-      historyArr
+      historyArr,
+      total
     })
     this.onDBUpdate({ historyArr })
   },
@@ -83,8 +96,10 @@ Page({
     let historyArr = this.data.historyArr
     historyArr[historyArr.length - 1].pop()
     this.predict(historyArr[historyArr.length - 1])
+    let total = this.sumEgg(historyArr)
     this.setData({
-      historyArr
+      historyArr,
+      total
     })
     this.onDBUpdate({ historyArr })
   },
@@ -103,8 +118,10 @@ Page({
       let arrStr = arr.join('')
       if (eggsStr.indexOf(arrStr) >= 0) {
         let predictStr = eggsStr.split(arrStr)
-        if (predictStr.length <= 1) {
-          // 需要跳到下一个round了
+        if (predictStr.length === 2 && predictStr[predictStr.length - 1] === '') {
+          this.setData({
+            nextEgg: [4]
+          })
         } else {
           predictStr.shift()
           let predictArr = predictStr.map((item, index) => {
@@ -164,6 +181,15 @@ Page({
       nextIndex,
       nextEgg: [eggArr[nextIndex - 1]],
     })
+  },
+
+  sumEgg(arr) {
+    let total = 0
+    arr.forEach((item, index) => {
+      total += item.length
+    })
+    console.log(total)
+    return total;
   },
 
   bindKeyInput(e) {
@@ -280,13 +306,15 @@ Page({
         console.log('onQueryDB' , res)
         if (res.data.length) {
           if (res.data[0].currentIndex === -1) {
+            let total = this.sumEgg(res.data[0].historyArr)
             this.predict(res.data[0].historyArr[res.data[0].historyArr.length - 1])
             this.setData({
               historyArr: res.data[0].historyArr,
               currentIndex: res.data[0].currentIndex,
               nextIndex: -1,
               DB_id: res.data[0]._id,
-              loading: false
+              loading: false,
+              total
             })
           } else {
             let nextIndex = res.data[0].currentIndex === 155 ? 1 : res.data[0].currentIndex + 1

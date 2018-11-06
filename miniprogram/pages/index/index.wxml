@@ -70,6 +70,7 @@
 
   <view class="history-container" wx:if="{{currentIndex === -1}}">
     <text style="margin-left: 40rpx">历史记录：</text>
+    <view style="margin-left: 22rpx; font-size: 30rpx" wx:if="{{total}}" >（共记录了{{total}}个蛋蛋啦）</view>
     <view wx:if="{{historyArr[0].length}}" style="display: flex;flex-direction: column-reverse;">
       <view 
           wx:for="{{historyArr}}" 
