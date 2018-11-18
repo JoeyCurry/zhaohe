@@ -7,6 +7,17 @@ Page({
   data: {
     historyArr: [[]],
     nextEgg: [],
+    activity: {
+      '-1': '程序错误，请联系我',
+      0: '宝藏岛宝藏图双倍',
+      1: '刷图宝箱金币双倍',
+      2: '异次元裂缝卷轴双倍',
+      3: '勇者悬赏金币双倍',
+      4: '无尽的远征卷轴双倍',
+      5: '章节内掉落金币双倍',
+      6: '夺矿金币双倍',
+      7: '魔王金币双倍',
+    },
     egg: {
       1: '绿',
       2: '蓝',
@@ -38,11 +49,27 @@ Page({
     inputValue: '',
     eggArr: eggArr,
     loading: true,
-    total: 0
+    total: 0,
+    beginDate: 1542519958569,
+    todayActivity: -1,
+    nextActivity: -1
   },
 
   onLoad: function() {
     this.onGetOpenid()
+    this.activeFn()
+  },
+
+  // 计算当天的活动，及下一天活动 
+  activeFn() {
+    let date = new Date().getTime()
+    const ONEDAY = 24 * 60 * 60 * 1000 // 每一天的毫秒数
+    // 距离制定开始时间有多少天
+    let minusDays = Math.floor((date - this.data.beginDate) / ONEDAY) 
+    this.setData({
+      todayActivity: (minusDays % 8),
+      nextActivity: ((minusDays + 1) % 8) 
+    })
   },
 
   onGetOpenid: function() {
@@ -53,9 +80,6 @@ Page({
       success: res => {
         console.log('[云函数] [login] user openid: ', res.result.openid)
         app.globalData.openid = res.result.openid
-        // wx.navigateTo({
-        //   url: '../userConsole/userConsole',
-        // })
         this.onQueryDB()
 
       },
@@ -73,7 +97,7 @@ Page({
     let historyArr = this.data.historyArr
     let eggsStr = eggArr.join('')
     let arrStr = historyArr[historyArr.length - 1].join('')
-    if (eggsStr.indexOf(arrStr)) {
+    if (eggsStr.indexOf(arrStr) >= 0) {
       let predictStr = eggsStr.split(arrStr)
       if (predictStr.length === 2 && predictStr[1] === '') {
         historyArr.push([type])
@@ -188,7 +212,6 @@ Page({
     arr.forEach((item, index) => {
       total += item.length
     })
-    console.log(total)
     return total;
   },
 
@@ -201,7 +224,7 @@ Page({
   help() {
     wx.showModal({
       title: '使用说明',
-      content: '用于召唤与合成记录垫刀，有两种方式预估，一是添加当前蛋蛋的颜色，然后进行预估，预估结果可能会有多个；二是手动设置位置，只要你自己估计的位置是对的，那么预估结果一定是对的；\n 如需帮助，请联系我，把你的id带上,你的id是 ' + this.data.DB_id + '；当然了，最后环节，我的邀请码：10110031，随缘',
+      content: '用于召唤与合成记录垫刀，有两种方式预估，一是添加当前蛋蛋的颜色，然后进行预估，预估结果可能会有多个；二是手动设置位置，只要你自己估计的位置是对的，那么预估结果一定是对的；\n 如需帮助，请联系我，把你的id带上,你的id是 ' + this.data.DB_id + '；当然了，最后环节，我的邀请码IOS：10110031，随缘',
       showCancel: false
     })
   },
@@ -284,7 +307,6 @@ Page({
           DB_id: res._id,
           loading: false
         })
-        console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id)
       },
       fail: err => {
         wx.showToast({
@@ -303,7 +325,6 @@ Page({
       _openid: app.globalData.openid
     }).get({
       success: res => {
-        console.log('onQueryDB' , res)
         if (res.data.length) {
           if (res.data[0].currentIndex === -1) {
             let total = this.sumEgg(res.data[0].historyArr)
@@ -330,13 +351,11 @@ Page({
         } else {
           this.onDBCreate()
         }
-        console.log('[数据库] [查询] 成功，记录: ', res)
       },
       fail: res => {
         wx.showToast({
           title: '读取数据库失败，请咨询我',
         })
-        console.log('onQueryDB: fail')
       }
     })
   },
@@ -347,7 +366,6 @@ Page({
     db.collection('user_eggs').doc(this.data.DB_id).update({
       data: data,
       success: function (res) {
-        console.log('onDBUpdate',res)
       },
       fail: err => {
         icon: 'none',
