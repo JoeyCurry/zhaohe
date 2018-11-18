@@ -5,6 +5,7 @@
     <image style="height: 30rpx;width: 30rpx;margin-right: 5rpx" src='../../images/Help.png' mode="aspectFit"></image>
     <text>使用说明</text>
   </view>
+  <view>如有白蛋，请勿记录，重启游戏重新扫荡即可（扫荡第三章永远不会出白蛋）</view>
   <view class="current-container">
     <text style="margin-left: 40rpx">添加一个蛋蛋</text>
     <view class="button-container" wx:if="{{currentIndex === -1}}">
