@@ -114,7 +114,8 @@
 </view>
 <view class="container" wx:else>
   <text style="margin-top: 200rpx">正在获取数据...</text>
-  <view style="margin-top: 50rpx">恭喜获得炮姐，走上人生巅峰</view>
-  <text style="font-size: 20rpx">然鹅我还没有 (╯°Д°)╯︵ ┻━┻</text>
-  <image src="../../images/wechat_share37.png" mode="widthFix" style="width:650rpx;margin-top: 20rpx" ></image>
+  <view style="margin-top: 50rpx">恭喜炮姐100级，走上人生巅峰</view>
+  <text style="font-size: 20rpx">然鹅我还没有 (╯°Д°)╯︵ ┻━┻ </text>
+   <text style="font-size: 15rpx">开箱子吧少年（皮）</text>
+  <image src="../../images/luckpic.jpg" mode="widthFix" style="width:650rpx;margin-top: 20rpx" ></image>
 </view>
