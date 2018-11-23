@@ -1,0 +1,28 @@
+/* pages/eventDetail/index.wxss */
+.event-detail-container {
+  text-align: center;
+  margin-bottom: 150rpx;
+  padding-bottom: 30rpx;
+}
+
+.event-detail-title {
+  text-align: center;
+  font-weight: bold
+}
+
+.event-detail-card {
+  background-color: #fff;
+  margin: 20rpx 40rpx;
+  border-radius: 5px;
+  padding: 20rpx;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+  text-align: start;
+  font-size: 35rpx;
+}
+
+.event-detai-bottom {
+  position: absolute;
+  bottom: 0;
+  height: 180rpx;
+  padding: 0 30rpx;
+}

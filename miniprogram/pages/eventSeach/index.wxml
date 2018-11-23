@@ -1,0 +1,56 @@
+<view class="page">
+  <view class="event-search-bar">
+    <view class="page__bd">
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                    <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+                    <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                        <icon type="clear" size="14"></icon>
+                    </view>
+                </view>
+                <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                    <icon class="weui-icon-search" type="search" size="14"></icon>
+                    <view class="weui-search-bar__text">搜索</view>
+                </label>
+            </view>
+            <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+        </view>
+        <!-- <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+            <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">
+                    <view>实时搜索文本</view>
+                </view>
+            </navigator>
+        </view> -->
+    </view>
+  </view>
+    <view wx:if="{{searchData.length}}" class="weui-cells weui-cells_after-title search-result-container">
+            <!-- <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">cell standard</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator> -->
+          <navigator 
+            wx:for="{{searchData}}"
+            wx:key="index" 
+            url="{{'../eventDetail/index?id=' + item._id}}"
+            data-id='{{item.id}}'
+            class="weui-cell weui-cell_access" 
+            hover-class="weui-cell_active">
+              <view class="weui-cell__bd">{{item.title}}</view>
+              <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+          </navigator>
+    </view>
+    <view wx:if="{{showFeedback}}" class="search-result-container search-feedback-container">
+      <view>还没有记录你遇到的奇遇，有结果后可以帮助记录一下吗，或者你有什么想和我说的呢</view>
+      <button bindtap='feedback' auto-height class="weui-btn mini-btn search-feedback" type="primary" size="mini">反馈</button>
+    </view>
+    <modal catchtouchmove='true' hidden="{{hiddenmodalput}}" title="反馈" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">  
+    <view class="modal-container">
+      <input type='text' class="feedback-input" bindinput="bindNameInput" value="{{name}}" placeholder="怎么称呼你呢" maxlength="255" />
+      <textarea class="weui-textarea" class="feedback-textarea" bindinput='bindFeedback' maxlength='300' placeholder="感谢您的反馈，我会持续优化的..." style="height: 200rpx" />
+      <view style='color: #F5222D; font-size: 30rpx'>维护数据不易，请保证数据真实性，如多次提交错误信息，我将关闭此账号反馈功能</view>
+    </view>
+  </modal>
+</view>

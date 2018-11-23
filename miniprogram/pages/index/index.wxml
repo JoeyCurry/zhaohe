@@ -1,8 +1,14 @@
 <!--index.wxml-->
 <view class="container" wx:if="{{!loading}}">
-  <view bindtap='help' class="help-container">
-    <image style="height: 30rpx;width: 30rpx;margin-right: 5rpx" src='../../images/Help.png' mode="aspectFit"></image>
-    <text>使用说明</text>
+  <view class="help-container">
+    <view bindtap='help' style="padding-left: 30rpx;display:flex;align-items: center;">
+      <image style="height: 30rpx;width: 30rpx;margin-right: 5rpx" src='../../images/Help.png' mode="aspectFit"></image>
+      <text>使用说明</text>
+    </view>
+    <view bindtap='search' style="padding-right: 30rpx;display:flex;align-items: center;">
+      <image style="height: 30rpx;width: 30rpx;margin-right: 5rpx" src='../../images/search.png' mode="aspectFit"></image>
+      <text>奇遇搜索</text>
+    </view>
   </view>
   <view style="font-size: 30rpx; margin-left: 30rpx;color: #666">如有白蛋，请勿记录，重启游戏重新扫荡即可（扫荡第三章永远不会出白蛋）</view>
   <view style="font-size:30rpx">
@@ -74,35 +80,63 @@
   </view>
 
   <view class="history-container" wx:if="{{currentIndex === -1}}">
-    <text style="margin-left: 40rpx">历史记录：</text>
-    <view style="margin-left: 22rpx; font-size: 30rpx" wx:if="{{total}}" >（共记录了{{total}}个蛋蛋啦）</view>
-    <view wx:if="{{historyArr[0].length}}" style="display: flex;flex-direction: column-reverse;">
+    <view style="display:flex; justify-content: space-between;padding: 0 40rpx">
+      <view>
+        <text>历史记录：</text>
+        <view style="font-size: 30rpx" wx:if="{{total}}" >共记录了{{total}}个蛋蛋啦</view>
+      </view>
+      <view wx:if="{{historyArr.length > 1}}" bindtap='toggleShowEgg'>{{showMore ? '收起' : '显示更多'}} </view>
+    </view>
+    <view wx:if="{{historyArr[0].length}}">
       <view 
-          wx:for="{{historyArr}}" 
-          wx:for-item="itemName"
-          wx:key="index"
+          wx:if="{{!showMore}}"
           class="history-card">
           <view>
             <view class="history-card-title">
-              <text>Round: {{index + 1}}</text>
-              <text bindtap='delEgg' wx:if="{{index === (historyArr.length - 1) && itemName.length}}">删除</text>
+              <text>Round: {{historyArr.length}}</text>
+              <text wx:if="{{historyArr[historyArr.length - 1].length}}" bindtap='delEgg'>删除</text>
             </view>
-            <view class="history-text-content">
+            <view wx:if="{{historyArr[historyArr.length - 1].length}}" class="history-text-content">
               <view 
-                wx:for="{{itemName}}" 
+                wx:for="{{historyArr[historyArr.length - 1]}}" 
                 wx:key="index"
                 class="history-text"
                 style="{{'color: ' + eggColor[item]}}">
                 {{egg[item]}}
               </view>
             </view>
+            <view wx:else style="color: #666;font-size: 30rpx">这轮还没有蛋蛋呢</view>
           </view>
       </view>
+      <view wx:else style="display: flex;flex-direction: column-reverse;">
+        <view 
+            wx:for="{{historyArr}}" 
+            wx:for-item="itemName"
+            wx:key="index"
+            class="history-card">
+            <view>
+              <view class="history-card-title">
+                <text>Round: {{index + 1}}</text>
+                <text bindtap='delEgg' wx:if="{{index === (historyArr.length - 1) && itemName.length}}">删除</text>
+              </view>
+              <view class="history-text-content" wx:if="{{itemName.length}}" >
+                <view 
+                  wx:for="{{itemName}}" 
+                  wx:key="index"
+                  class="history-text"
+                  style="{{'color: ' + eggColor[item]}}">
+                  {{egg[item]}}
+                </view>
+              </view>
+              <view wx:else style="color: #666;font-size: 30rpx">这轮还没有蛋蛋呢</view>
+            </view>
+        </view>
+      </view>
     </view>
-    <text wx:if="{{historyArr[0].length === 0}}">暂无数据</text>
+    <text style="margin-left: 40rpx" wx:if="{{historyArr[0].length === 0}}">暂无数据</text>
   </view>
     
-  <modal hidden="{{hiddenmodalput}}" title="手动设置位置" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">  
+  <modal hidden="{{hiddenmodalput}}" catchtouchmove='true'  title="手动设置位置" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">  
       <input type='number' bindinput="bindKeyInput" placeholder="请输入位置" maxlength="3" />
       <view>请保证您自己估算位置的准确性，位置范围为1~155（注意：将清空当前历史记录蛋蛋），输入0即为清空位置</view>
   </modal>

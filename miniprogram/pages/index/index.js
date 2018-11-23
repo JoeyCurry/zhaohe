@@ -14,7 +14,7 @@ Page({
       2: '异次元裂缝卷轴双倍',
       3: '勇者悬赏金币双倍',
       4: '无尽的远征卷轴双倍',
-      5: '章节内掉落金币双倍',
+      5: '关卡金币收益翻倍',
       6: '夺矿金币双倍',
       7: '魔王金币双倍',
     },
@@ -50,9 +50,10 @@ Page({
     eggArr: eggArr,
     loading: true,
     total: 0,
-    beginDate: 1542519958569,
+    beginDate: 1542470400000,
     todayActivity: -1,
-    nextActivity: -1
+    nextActivity: -1,
+    showMore: false
   },
 
   onLoad: function() {
@@ -69,6 +70,22 @@ Page({
     this.setData({
       todayActivity: (minusDays % 8),
       nextActivity: ((minusDays + 1) % 8) 
+    })
+  },
+
+  // 奇遇搜索
+  search() {
+    wx.navigateTo({
+      url: '../eventSeach/index',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
+
+  toggleShowEgg() {
+    this.setData({
+      showMore: !this.data.showMore
     })
   },
 
@@ -134,7 +151,7 @@ Page({
       content: '',
     })
   },
-
+ 
   // 预测下一个蛋蛋
   predict(arr) {
     if (arr.length) {
@@ -272,11 +289,13 @@ Page({
         })
       } else if (inputValue == 0) {
         this.onDBUpdate({ currentIndex: -1 })
+        let total = this.sumEgg(this.data.historyArr)
         this.setData({
           hiddenmodalput,
           nextIndex: -1,
           nextEgg: [],
-          currentIndex: -1
+          currentIndex: -1,
+          total
         })
       } else {
         wx.showToast({

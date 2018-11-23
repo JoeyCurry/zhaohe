@@ -66,10 +66,9 @@ page {
 .help-container {
   font-size: 30rpx;
   display: flex;
-  width: 750rpx;
-  align-items: center;
-  padding-left: 70rpx;
+  width: 100%;
   padding-top: 20rpx;
+  justify-content: space-between;
 }
 
 .pic-container {

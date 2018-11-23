@@ -1,0 +1,30 @@
+<!--pages/eventDetail/index.wxml-->
+<view>
+  <view class="event-detail-container">
+    <view class="event-detail-title">
+      {{eventData.title}}
+    </view>
+    <view class="event-detail-card" 
+      wx:for="{{eventData.value}}"
+      wx:key="index">
+      <view>
+        {{'选项：' + item.answer}}
+      </view>
+      <view>
+        {{'结果：' + item.result}}
+      </view>
+      <view wx:if="{{item.from}}">
+        {{'感谢「' + item.from + '」同学'}}
+      </view>
+    </view>
+    <button bindtap='feedback' class="weui-btn mini-btn" type="primary" size="mini">反馈</button>
+  </view>
+    <modal catchtouchmove='true' hidden="{{hiddenmodalput}}" title="反馈" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">  
+      <view class="modal-container">
+        <input type='text' class="feedback-input" bindinput="bindNameInput" value="{{name}}" placeholder="怎么称呼你呢" maxlength="255" />
+        <textarea bindinput='bindFeedback' class="feedback-textarea" placeholder="感谢您的反馈，我将会验证反馈后进行更新，召合有你更好" maxlength='300' style="height: 200rpx" />
+        <view style='color: #F5222D; font-size: 30rpx'>维护数据不易，请保证数据真实性，如多次提交错误信息，我将关闭此账号反馈功能</view>
+      </view>
+  </modal>
+  <view class="event-detai-bottom" style=" color: #666;font-size: 30rpx">说明：如果结果为空，表明还未记录;所有结果均为网友记录，初始数据来源于taptap大佬「千树千载」的帖子。如果有错误欢迎大家能这里反馈，更新数据。感谢各位，召合有你更好</view>
+</view>

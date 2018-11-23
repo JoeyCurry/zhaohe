@@ -1,0 +1,159 @@
+import regeneratorRuntime from '../../utils/runtime' 
+Page({
+  data: {
+    inputShowed: false,
+    inputVal: "",
+    fullData: [],
+    searchData: [],
+    showFeedback:false,
+    hiddenmodalput: true,
+    name: '',
+    feedback: ''
+  },
+  showInput: function () {
+    this.setData({
+      inputShowed: true
+    });
+  },
+  hideInput: function () {
+    this.setData({
+      inputVal: "",
+      inputShowed: false,
+      searchData: this.data.fullData
+    });
+  },
+  clearInput: function () {
+    this.setData({
+      inputVal: "",
+      searchData: this.data.fullData
+    });
+  },
+  inputTyping: function (e) {
+    this.search(e.detail.value.trim())
+    this.setData({
+      inputVal: e.detail.value
+    });
+  },
+
+  onLoad: function() {
+    this.getEventList()
+    this.getName()
+  },
+
+  getEventList() {
+    wx.showToast({
+      title: 'loading...',
+      icon: 'loading'
+    })
+    wx.cloud.callFunction({
+      name: 'getEventList',
+      data: {},
+      success: res => {
+        console.log('[云函数] [getEventList] ', res.result)
+        wx.hideToast()
+        this.setData({
+          searchData: res.result.data,
+          fullData: res.result.data
+        })
+      },
+      fail: err => {
+        console.error('[云函数] [getEventList] 调用失败', err)
+      }
+    })
+  },
+
+  search(val) {
+    let searchData = this.data.fullData.filter((item, index)=>{
+      return item.title.indexOf(val) >= 0
+    })
+    let showFeedback = false
+    if (!searchData.length) {
+      showFeedback = true
+    }
+    this.setData({
+      searchData,
+      showFeedback
+    })
+    console.log(searchData)
+  },
+
+  // 反馈记录
+  feedback() {
+    this.setData({
+      hiddenmodalput: false
+    })
+  },
+
+  bindNameInput(e) {
+    this.setData({
+      name: e.detail.value.trim()
+    })
+  },
+
+  bindFeedback(e) {
+    this.setData({
+      feedback: e.detail.value.trim()
+    })
+  },
+
+  cancel() {
+    this.setData({
+      hiddenmodalput: true
+    })
+  },
+
+  // 提交反馈
+  confirm() {
+    wx.showToast({
+      title: '反馈中...',
+      icon: 'loading',
+    })
+    wx.cloud.callFunction({
+      name: 'addFeedback',
+      data: {
+        feedback: this.data.feedback,
+        name: this.data.name
+      }
+    }).then((res)=>{
+      this.setName()
+    })
+  },
+
+  setName() {
+    wx.cloud.callFunction({
+      name: 'setName',
+      data: {
+        name: this.data.name
+      }
+    }).then((res) => {
+      this.setData({
+        hiddenmodalput: true
+      })
+      wx.showToast({
+        title: '反馈成功',
+        icon: 'success',
+        duration: 1500
+      })
+    }).catch((err) => {
+      console.error('getName', err)
+    })
+  },
+
+  getName() {
+    wx.cloud.callFunction({
+      name: 'getName',
+      data: {}
+    }).then((res)=> {
+      this.setData({
+        name: res.result.name
+      })
+    }).catch((err)=>{
+      console.error('getName',err)
+    })
+  }
+
+  /**
+   * 数据库相关
+   */
+
+});

@@ -1,6 +1,8 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/eventSeach/index",
+    "pages/eventDetail/index"
   ],
   "window": {
     "backgroundColor": "#fff",
