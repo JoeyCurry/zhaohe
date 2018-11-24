@@ -37,7 +37,7 @@ Page({
 
   onLoad: function() {
     this.getEventList()
-    this.getName()
+    // this.getName()
   },
 
   getEventList() {
@@ -51,6 +51,7 @@ Page({
       success: res => {
         console.log('[云函数] [getEventList] ', res.result)
         wx.hideToast()
+        
         this.setData({
           searchData: res.result.data,
           fullData: res.result.data
@@ -77,10 +78,12 @@ Page({
     console.log(searchData)
   },
 
-  // 反馈记录
+  // 打开反馈
   feedback() {
+    let appInstance = getApp()
     this.setData({
-      hiddenmodalput: false
+      hiddenmodalput: false,
+      name: appInstance.globalData.name
     })
   },
 
@@ -108,15 +111,33 @@ Page({
       title: '反馈中...',
       icon: 'loading',
     })
-    wx.cloud.callFunction({
-      name: 'addFeedback',
-      data: {
-        feedback: this.data.feedback,
-        name: this.data.name
-      }
-    }).then((res)=>{
-      this.setName()
-    })
+    if (!this.data.name.trim()) {
+      wx.showToast({
+        title: '请填写名称',
+        icon: 'none',
+        duration: 1500
+      })
+    } else if (!this.data.feedback.trim()) {
+      wx.showToast({
+        title: '请添加反馈',
+        icon: 'none',
+        duration: 1500
+      })
+    } else {
+      wx.showToast({
+        title: '反馈中...',
+        icon: 'loading',
+      })
+      wx.cloud.callFunction({
+        name: 'addFeedback',
+        data: {
+          feedback: this.data.feedback,
+          name: this.data.name
+        }
+      }).then((res)=>{
+        this.setName()
+      })
+    }
   },
 
   setName() {
@@ -126,34 +147,19 @@ Page({
         name: this.data.name
       }
     }).then((res) => {
-      this.setData({
-        hiddenmodalput: true
-      })
+      let appInstance = getApp()
+      appInstance.globalData.name = this.data.name
       wx.showToast({
         title: '反馈成功',
         icon: 'success',
         duration: 1500
       })
+      this.setData({
+        hiddenmodalput: true
+      })
     }).catch((err) => {
-      console.error('getName', err)
+      console.error('setName', err)
     })
   },
-
-  getName() {
-    wx.cloud.callFunction({
-      name: 'getName',
-      data: {}
-    }).then((res)=> {
-      this.setData({
-        name: res.result.name
-      })
-    }).catch((err)=>{
-      console.error('getName',err)
-    })
-  }
-
-  /**
-   * 数据库相关
-   */
 
 });

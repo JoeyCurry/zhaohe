@@ -5,6 +5,10 @@
       <image style="height: 30rpx;width: 30rpx;margin-right: 5rpx" src='../../images/Help.png' mode="aspectFit"></image>
       <text>使用说明</text>
     </view>
+    <!-- <view bindtap='search' style="padding-right: 30rpx;display:flex;align-items: center;">
+      <image style="height: 30rpx;width: 30rpx;margin-right: 5rpx" src='../../images/tactic.png' mode="aspectFit"></image>
+      <text>攻略合集</text>
+    </view> -->
     <view bindtap='search' style="padding-right: 30rpx;display:flex;align-items: center;">
       <image style="height: 30rpx;width: 30rpx;margin-right: 5rpx" src='../../images/search.png' mode="aspectFit"></image>
       <text>奇遇搜索</text>

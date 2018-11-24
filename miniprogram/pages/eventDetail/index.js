@@ -25,10 +25,11 @@ Page({
       success: res => {
         // res.data 包含该记录的数据
         try {
-          this.getName()
+          let appInstance = getApp()
           this.setData({
             id: options.id,
-            eventData: res.data
+            eventData: res.data,
+            name: appInstance.globalData.name
           })
           wx.hideLoading()
         } catch (e) {
@@ -42,9 +43,12 @@ Page({
     })
   },
 
+  // 打开反馈
   feedback() {
+    let appInstance = getApp()
     this.setData({
-      hiddenmodalput: false
+      hiddenmodalput: false,
+      name: appInstance.globalData.name
     })
   },
 
@@ -71,21 +75,35 @@ Page({
 
   // 提交反馈
   confirm() {
-    wx.showToast({
-      title: '反馈中...',
-      icon: 'loading',
-    })
-    wx.cloud.callFunction({
-      name: 'addSimpleFeedback',
-      data: {
-        feedback: this.data.feedback,
-        name: this.data.name,
-        id: this.data.eventData._id,
-        title: this.data.eventData.title,
-      }
-    }).then((res) => {
-      this.setName()
-    })
+    if (!this.data.name.trim()) {
+      wx.showToast({
+        title: '请填写名称',
+        icon: 'none',
+        duration: 1500
+      })
+    } else if (!this.data.feedback.trim()) {
+      wx.showToast({
+        title: '请添加反馈',
+        icon: 'none',
+        duration: 1500
+      })
+    } else {
+      wx.showToast({
+        title: '反馈中...',
+        icon: 'loading',
+      })
+      wx.cloud.callFunction({
+        name: 'addSimpleFeedback',
+        data: {
+          feedback: this.data.feedback,
+          name: this.data.name,
+          id: this.data.eventData._id,
+          title: this.data.eventData.title,
+        }
+      }).then((res) => {
+        this.setName()
+      })
+    }
   },
 
   setName() {
@@ -95,29 +113,19 @@ Page({
         name: this.data.name
       }
     }).then((res) => {
-      this.setData({
-        hiddenmodalput: true
-      })
+      let appInstance = getApp()
+      appInstance.globalData.name = this.data.name
       wx.showToast({
         title: '反馈成功',
         icon: 'success',
         duration: 1500
+      })
+      this.setData({
+        hiddenmodalput: true
       })
     }).catch((err) => {
       console.error('setName', err)
     })
   },
 
-  getName() {
-    wx.cloud.callFunction({
-      name: 'getName',
-      data: {}
-    }).then((res) => {
-      this.setData({
-        name: res.result.name
-      })
-    }).catch((err) => {
-      console.error('getName', err)
-    })
-  }
 })
