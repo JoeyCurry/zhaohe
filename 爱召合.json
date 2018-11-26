@@ -1,0 +1,1372 @@
+{
+    "id": 1,
+    "title" : "陈旧的弓和弓箭",
+    "value": [
+        {
+            "answer": "试试弹弓箭",
+            "result": "+5雷人鸟碎片",
+            "from": ""
+        },
+        {
+            "answer": "弄断弓箭",
+            "result": "一个精英卷轴",
+            "from": "风影渐漱"
+        },
+        {
+            "answer": "无视弓箭",
+            "result": "",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 2,
+    "title" : "杆子与线",
+    "value": [
+        {
+            "answer": "把线绕杆上",
+            "result": "-1魔法强度",
+            "from": "21487大仙"
+        },
+        {
+            "answer": "拿杆子坐河边",
+            "result": "5个鲨鱼碎片",
+            "from": "命辰"
+        },
+        {
+            "answer": "用手捞鱼",
+            "result": "一个紫色鲨鱼卷轴",
+            "from": "手机用户9572209"
+        }
+    ]
+}
+{
+    "id": 3,
+    "title" : "鸟笼和钥匙",
+    "value": [
+        {
+            "answer": "用钥匙开鸟笼",
+            "result": "无",
+            "from": "21487大仙"
+        },
+        {
+            "answer": "仔细观察小鸟",
+            "result": "+1雷人鸟紫卷轴",
+            "from": "命辰"
+        },
+        {
+            "answer": "把鸟卖了",
+            "result": "金币",
+            "from": " NaClO君"
+        }
+    ]
+}
+{
+    "id": 4,
+    "title" : "特别的书",
+    "value": [
+        {
+            "answer": "打开看",
+            "result": "-10血",
+            "from": " 一只Kai "
+        },
+        {
+            "answer": "把书藏起来",
+            "result": "-1物攻",
+            "from": "笨蛋⑨"
+        },
+        {
+            "answer": "撕书",
+            "result": "+10血",
+            "from": "提斯雷尔"
+        }
+    ]
+}
+{
+    "id": 5,
+    "title" : "迷路的木偶",
+    "value": [
+        {
+            "answer": "同意",
+            "result": "-1魔法强度",
+            "from": "永别%"
+        },
+        {
+            "answer": "不同意",
+            "result": "英雄防御力+1",
+            "from": "21487大仙"
+        },
+        {
+            "answer": "不理睬",
+            "result": "-10血",
+            "from": "笨蛋⑨"
+        }
+    ]
+}
+{
+    "id": 6,
+    "title" : "偶遇漂流瓶",
+    "value": [
+        {
+            "answer": "把瓶子打开",
+            "result": "-10血",
+            "from": "之徒"
+        },
+        {
+            "answer": "扔瓶子",
+            "result": "+1攻击",
+            "from": "笨蛋⑨"
+        },
+        {
+            "answer": "砸碎瓶子",
+            "result": "白板宝物",
+            "from": "永别%"
+        }
+    ]
+}
+{
+    "id": 7,
+    "title" : "一朵玫瑰花",
+    "value": [
+        {
+            "answer": "直接走过",
+            "result": "一个紫色卷轴",
+            "from": "Nevermore"
+        },
+        {
+            "answer": "去摘花",
+            "result": "-10血",
+            "from": "愚者。"
+        },
+        {
+            "answer": "夸花美",
+            "result": "一个紫色卷轴",
+            "from": "永别%"
+        }
+    ]
+}
+{
+    "id": 8,
+    "title" : "满是果子的果树",
+    "value": [
+        {
+            "answer": "摇树",
+            "result": "-10血",
+            "from": "永别%"
+        },
+        {
+            "answer": "爬树摘果子",
+            "result": "+10血",
+            "from": "愚者。"
+        },
+        {
+            "answer": "休息",
+            "result": "+1魔法强度",
+            "from": "水管"
+        }
+    ]
+}
+{
+    "id": 9,
+    "title" : "迷路的小恐龙",
+    "value": [
+        {
+            "answer": "打招呼",
+            "result": "-10血",
+            "from": "永别%"
+        },
+        {
+            "answer": "攻击他",
+            "result": "+5橙色碎片",
+            "from": "愚者。"
+        },
+        {
+            "answer": "躲到草丛里",
+            "result": "+经验",
+            "from": "330382660"
+        }
+    ]
+}
+{
+    "id": 10,
+    "title" : "宝箱和钥匙",
+    "value": [
+        {
+            "answer": "砸开宝箱",
+            "result": "+10血",
+            "from": "纪寒宸"
+        },
+        {
+            "answer": "用钥匙开宝箱",
+            "result": "1个紫色卷轴",
+            "from": "手机用户20724566"
+        },
+        {
+            "answer": "无视宝箱",
+            "result": "",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 11,
+    "title" : "迷路的骷髅",
+    "value": [
+        {
+            "answer": "跟他说话",
+            "result": "紫色骨龙卷轴",
+            "from": "纪寒宸"
+        },
+        {
+            "answer": "与他战斗",
+            "result": "",
+            "from": ""
+        },
+        {
+            "answer": "偷袭他",
+            "result": "+5骨龙碎片",
+            "from": "鄢伟鸿"
+        }
+    ]
+}
+{
+    "id": 12,
+    "title" : "一位老神父",
+    "value": [
+        {
+            "answer": "与他交谈",
+            "result": "+500天赋点",
+            "from": "手机用户9572209"
+        },
+        {
+            "answer": "不睬他",
+            "result": "",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 13,
+    "title" : "冬天的蛇",
+    "value": [
+        {
+            "answer": "用体温帮他解冻",
+            "result": "-1魔防",
+            "from": "怪盗基德"
+        },
+        {
+            "answer": "给蛇生火取暖",
+            "result": "+6w金币",
+            "from": "永别%"
+        },
+        {
+            "answer": "直接把蛇烤熟",
+            "result": "+10血",
+            "from": "手机用户9572209"
+        }
+    ]
+}
+{
+    "id": 14,
+    "title" : "巫师与苹果",
+    "value": [
+        {
+            "answer": "吃苹果",
+            "result": "",
+            "from": ""
+        },
+        {
+            "answer": "直接与他战斗",
+            "result": "战斗胜利+500天赋点",
+            "from": "(ˉ▽￣～) ~~"
+        },
+        {
+            "answer": "背后偷袭他",
+            "result": "+1魔防",
+            "from": "永别%"
+        }
+    ]
+}
+{
+    "id": 15,
+    "title" : "掉落的水晶鞋",
+    "value": [
+        {
+            "answer": "寻找鞋子主人",
+            "result": "战斗胜利得到220经验",
+            "from": "怕水的冰"
+        },
+        {
+            "answer": "把鞋子当水晶卖",
+            "result": "+6w金币",
+            "from": "永别%"
+        }
+    ]
+}
+{
+    "id": 16,
+    "title" : "伤心的牛魔王",
+    "value": [
+        {
+            "answer": "给他少量体力",
+            "result": "-10体力，+5牛魔王碎片",
+            "from": ""
+        },
+        {
+            "answer": "攻击他",
+            "result": "+5牛魔王碎片",
+            "from": "永别%"
+        },
+        {
+            "answer": "生火烧他",
+            "result": "",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 17,
+    "title" : "飞舞的小精灵",
+    "value": [
+        {
+            "answer": "许愿",
+            "result": "+1紫色卷轴",
+            "from": "永别%"
+        },
+        {
+            "answer": "与她交谈",
+            "result": "+5魔导师碎片",
+            "from": "千水铭"
+        },
+        {
+            "answer": "与她战斗",
+            "result": "战斗胜利获得230经验",
+            "from": "曱甴恶霸"
+        }
+    ]
+}
+{
+    "id": 18,
+    "title" : "红色绣花鞋",
+    "value": [
+        {
+            "answer": "查事情来龙去脉",
+            "result": "+500天赋点",
+            "from": "永别%"
+        },
+        {
+            "answer": "扔鞋擦血迹",
+            "result": "-100天赋",
+            "from": "东阳刘生"
+        },
+        {
+            "answer": "洗鞋子穿",
+            "result": "+1宝物鞋子",
+            "from": "千水铭"
+        }
+    ]
+}
+{
+    "id": 19,
+    "title" : "地上的泥巴",
+    "value": [
+        {
+            "answer": "用泥巴捏泥人",
+            "result": "获得金币",
+            "from": "21487大仙"
+        },
+        {
+            "answer": "用火烧泥巴",
+            "result": "+5软泥怪碎片",
+            "from": "手机用户9572209"
+        },
+        {
+            "answer": "不理他",
+            "result": "-1物防",
+            "from": "笨蛋⑨"
+        }
+    ]
+}
+{
+    "id": 20,
+    "title" : "失控的车子",
+    "value": [
+        {
+            "answer": "迅速躲开",
+            "result": "-10血",
+            "from": "21487大仙"
+        },
+        {
+            "answer": "用法力劈车子",
+            "result": "+1魔法强度",
+            "from": "不疯魔不成活"
+        },
+        {
+            "answer": "用武力停住车子",
+            "result": "+7w金币",
+            "from": "手机用户9572209"
+        }
+    ]
+}
+{
+    "id": 21,
+    "title" : "马蜂窝与野猪",
+    "value": [
+        {
+            "answer": "捅马蜂窝赶野猪",
+            "result": "-10血",
+            "from": "21487大仙"
+        },
+        {
+            "answer": "与野猪战斗",
+            "result": "两拨战斗，没打过血量-10;打过了，240经验",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 22,
+    "title" : "生锈的罗盘仪",
+    "value": [
+        {
+            "answer": "跟着罗盘走",
+            "result": "一个宝物",
+            "from": "Taurus"
+        },
+        {
+            "answer": "把它卖了",
+            "result": "+500天赋点",
+            "from": "命辰"
+        },
+        {
+            "answer": "把它放回原地",
+            "result": "+8w金币",
+            "from": "侯尼玛"
+        }
+    ]
+}
+{
+    "id": 23,
+    "title" : "贪吃的猴子",
+    "value": [
+        {
+            "answer": "摘果子给他吃",
+            "result": "-10血",
+            "from": "侯尼玛"
+        },
+        {
+            "answer": "告诉他边上有果子",
+            "result": "+5提莫碎片",
+            "from": "飘零の落英"
+        },
+        {
+            "answer": "不管他",
+            "result": "",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 24,
+    "title" : "特别的指南针",
+    "value": [
+        {
+            "answer": "跟着指南针走",
+            "result": "一个宝物",
+            "from": "Taurus"
+        },
+        {
+            "answer": "不信谣言，不睬它",
+            "result": "",
+            "from": ""
+        },
+        {
+            "answer": "找寻它的主人",
+            "result": "+500天赋点",
+            "from": "侯尼玛"
+        }
+    ]
+}
+{
+    "id": 25,
+    "title" : "一只单身狗",
+    "value": [
+        {
+            "answer": "帮他相亲",
+            "result": "-10血",
+            "from": "第8号当铺"
+        },
+        {
+            "answer": "给他打扮",
+            "result": "-5w金币",
+            "from": "刺骨的温暖"
+        },
+        {
+            "answer": "和他在一起",
+            "result": "无",
+            "from": "侯尼玛"
+        }
+    ]
+}
+{
+    "id": 26,
+    "title" : "年老的算命师",
+    "value": [
+        {
+            "answer": "花金币让他算命",
+            "result": "",
+            "from": ""
+        },
+        {
+            "answer": "拜托他帮你算命",
+            "result": "+500天赋点",
+            "from": "命辰"
+        },
+        {
+            "answer": "我不相信算命",
+            "result": "无",
+            "from": "Taurus"
+        }
+    ]
+}
+{
+    "id": 27,
+    "title" : "木质的任意门",
+    "value": [
+        {
+            "answer": "进门看看",
+            "result": "一个白板装备",
+            "from": "命辰"
+        },
+        {
+            "answer": "朝门扔石头",
+            "result": "-1物防",
+            "from": "侯尼玛"
+        },
+        {
+            "answer": "从门边绕过去",
+            "result": "无",
+            "from": "跳跃的回忆"
+        }
+    ]
+}
+{
+    "id": 28,
+    "title" : "积满灰尘的笔记本",
+    "value": [
+        {
+            "answer": "打开看看",
+            "result": "+500天赋点",
+            "from": "命辰"
+        },
+        {
+            "answer": "把书烧了",
+            "result": "",
+            "from": ""
+        },
+        {
+            "answer": "把书卖了",
+            "result": "8w金币",
+            "from": "侯尼玛"
+        }
+    ]
+}
+{
+    "id": 29,
+    "title" : "绑着炸弹的小猪",
+    "value": [
+        {
+            "answer": "帮他取炸弹",
+            "result": "+5猪碎片",
+            "from": "侯尼玛"
+        },
+        {
+            "answer": "让猪去水里",
+            "result": "+5猪碎片",
+            "from": "命辰"
+        }
+    ]
+}
+{
+    "id": 30,
+    "title" : "一只很粗的画笔",
+    "value": [
+        {
+            "answer": "拾起画笔画",
+            "result": "得到金币",
+            "from": "手机用户9053760"
+        },
+        {
+            "answer": "折断画笔",
+            "result": "+1伤害",
+            "from": "侯尼玛"
+        },
+        {
+            "answer": "卖笔",
+            "result": "得到8w6金币",
+            "from": "命辰"
+        }
+    ]
+}
+{
+    "id": 32,
+    "title" : "ss家族",
+    "value": [
+        {
+            "answer": "有（事实上没有）",
+            "result": "-100天赋点",
+            "from": "命辰"
+        },
+        {
+            "answer": "有（事实上有）",
+            "result": "",
+            "from": ""
+        },
+        {
+            "answer": "没有（事实上没有）",
+            "result": "得到8w6金币",
+            "from": "330382660"
+        },
+        {
+            "answer": "没有（事实上有）",
+            "result": "无",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 33,
+    "title" : "飘来的孔明灯",
+    "value": [
+        {
+            "answer": "拿出里面纸条",
+            "result": "继续出现选项",
+            "from": ""
+        },        
+        {
+            "answer": "去",
+            "result": "-1魔法强度",
+            "from": "330382660"
+        },
+        {
+            "answer": "不去",
+            "result": "",
+            "from": ""
+        },
+        {
+            "answer": "让孔明灯飞",
+            "result": "+500天赋点",
+            "from": "手机用户9053760"
+        }
+    ]
+}
+{
+    "id": 34,
+    "title" : "宠物小呆二龙",
+    "value": [
+        {
+            "answer": "有，已加入家族",
+            "result": "+280经验",
+            "from": "侯尼玛"
+        },
+        {
+            "answer": "没有",
+            "result": "无",
+            "from": "Taurus"
+        }
+    ]
+}
+{
+    "id": 35,
+    "title" : "乞丐",
+    "value": [
+        {
+            "answer": "给他金币",
+            "result": "-6w金币",
+            "from": "侯尼玛"
+        },
+        {
+            "answer": "不信，绕开他",
+            "result": "战斗",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 36,
+    "title" : "破损的石像",
+    "value": [
+        {
+            "answer": "搬走",
+            "result": "一个白板装备",
+            "from": "手机用户9053760"
+        },
+        {
+            "answer": "卖了",
+            "result": "+9w金币",
+            "from": "命辰"
+        }
+    ]
+}
+{
+    "id": 37,
+    "title" : "热情的美女",
+    "value": [
+        {
+            "answer": "她肯定爱我",
+            "result": "-6w金币",
+            "from": "命辰"
+        },
+        {
+            "answer": "检查自身财务",
+            "result": "无",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 38,
+    "title" : "神奇的寺庙第一个寺庙",
+    "value": [
+        {
+            "answer": "进去看看",
+            "result": "白板武器",
+            "from": "330382660"
+        },
+        {
+            "answer": "放火烧了",
+            "result": "无",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 39,
+    "title" : "神奇的寺庙第二个寺庙",
+    "value": [
+        {
+            "answer": "进去看看",
+            "result": "战斗胜利300经验",
+            "from": ""
+        },
+        {
+            "answer": "放火烧了",
+            "result": "橙色碎片",
+            "from": "330382660"
+        }
+    ]
+}
+{
+    "id": 40,
+    "title" : "会飞的馒头",
+    "value": [
+        {
+            "answer": "摸摸他",
+            "result": "+5毛球碎片",
+            "from": "330382660"
+        },
+        {
+            "answer": "把他拿下来吃了",
+            "result": "无",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 41,
+    "title" : "散落的骨架",
+    "value": [
+        {
+            "answer": "观察骨头",
+            "result": "进入战斗，胜利获得310经验",
+            "from": "呆呆的月亮"
+        },
+        {
+            "answer": "把他烧了",
+            "result": "+5骨龙碎片",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 42,
+    "title" : "修炼中的僧人",
+    "value": [
+        {
+            "answer": "上去搭讪",
+            "result": "魔法强度+1",
+            "from": ""
+        },
+        {
+            "answer": "不理睬他",
+            "result": "无",
+            "from": "330382660"
+        }
+    ]
+}
+{
+    "id": 43,
+    "title" : "散落的纸张",
+    "value": [
+        {
+            "answer": "捡起来阅读",
+            "result": "-10血",
+            "from": ""
+        },
+        {
+            "answer": "把它烧了",
+            "result": "+1魔法强度",
+            "from": "330382660"
+        }
+    ]
+}
+{
+    "id": 44,
+    "title" : "路边的贝壳",
+    "value": [
+        {
+            "answer": "给他浇水",
+            "result": "出现战斗，战斗胜利获得300经验",
+            "from": ""
+        },
+        {
+            "answer": "把他放海里",
+            "result": "+5贝壳碎片",
+            "from": "330382660"
+        }
+    ]
+}
+{
+    "id": 45,
+    "title" : "吃人的巨人",
+    "value": [
+        {
+            "answer": "与他战斗",
+            "result": "-10血",
+            "from": ""
+        },
+        {
+            "answer": "立刻逃",
+            "result": "无",
+            "from": "330382660"
+        }
+    ]
+}
+{
+    "id": 46,
+    "title" : "又是一年樱花祭 ",
+    "value": [
+        {
+            "answer": "摇樱花树",
+            "result": "血量降低10",
+            "from": "330382660"
+        }
+    ]
+}
+{
+    "id": 47,
+    "title" : "奇特的鱼人岛 ",
+    "value": [
+        {
+            "answer": "战斗拿宝藏",
+            "result": "战力515344，白板武器",
+            "from": "330382660"
+        },
+        {
+            "answer": "不用了谢谢",
+            "result": "",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 48,
+    "title" : "受伤的小鹿",
+    "value": [
+        {
+            "answer": "安慰它",
+            "result": "5璐鹿兽碎片",
+            "from": "330382660"
+        }
+    ]
+}
+{
+    "id": 49,
+    "title" : "一盏神灯",
+    "value": [
+        {
+            "answer": "擦一擦",
+            "result": "白板装备",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 50,
+    "title" : "诱人的美味岛",
+    "value": [
+        {
+            "answer": "尝一尝",
+            "result": "血量加10",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 51,
+    "title" : "妖艳的女王",
+    "value": [
+        {
+            "answer": "与她搭讪",
+            "result": "战斗，胜利获得320经验。参考战力：80w",
+            "from": "新司机等9.1万人觉得很赞"
+        },
+        {
+            "answer": "夸她美丽",
+            "result": "+11w金币",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 52,
+    "title" : "山洞里的宝藏",
+    "value": [
+        {
+            "answer": "少量金币",
+            "result": "+11w金币",
+            "from": ""
+        },
+        {
+            "answer": "很多金币",
+            "result": "-10血",
+            "from": "王Aspirin"
+        }
+    ]
+}
+{
+    "id": 53,
+    "title" : "一场梦",
+    "value": [
+        {
+            "answer": "打脸醒来",
+            "result": "+360经验",
+            "from": "王Aspirin"
+        },
+        {
+            "answer": "向兔子提要求",
+            "result": "-10血",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 54,
+    "title" : "一场梦",
+    "value": [
+        {
+            "answer": "打脸醒来",
+            "result": "+360经验",
+            "from": "王Aspirin"
+        },
+        {
+            "answer": "向兔子提要求",
+            "result": "-10血",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 55,
+    "title" : "咆哮的巨熊",
+    "value": [
+        {
+            "answer": "与它战斗",
+            "result": "战斗胜利后加300经验",
+            "from": ""
+        },
+        {
+            "answer": "躲开",
+            "result": "-10血",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 56,
+    "title" : "孤独的天使",
+    "value": [
+        {
+            "answer": "与她聊天",
+            "result": "",
+            "from": ""
+        },
+        {
+            "answer": "治疗她",
+            "result": "紫色卷轴",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 57,
+    "title" : "跳墙的狗",
+    "value": [
+        {
+            "answer": "帮助他",
+            "result": "战斗，奖励380经验",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 58,
+    "title" : "跳墙的狗",
+    "value": [
+        {
+            "answer": "帮助他",
+            "result": "战斗，奖励380经验",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 59,
+    "title" : "奇特的寺庙",
+    "value": [
+        {
+            "answer": "进去看看",
+            "result": "战斗胜利280经验",
+            "from": ""
+        },
+        {
+            "answer": "放火烧了",
+            "result": "橙色碎片",
+            "from": "330382660"
+        }
+    ]
+}
+{
+    "id": 60,
+    "title" : "靠岸的无人船",
+    "value": [
+        {
+            "answer": "上去搜",
+            "result": "战斗胜利+500天赋",
+            "from": "纪寒宸"
+        },
+        {
+            "answer": "不管他",
+            "result": "",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 61,
+    "title" : "夏天的雪人",
+    "value": [
+        {
+            "answer": "靠近摸摸他",
+            "result": "+5雪人碎片",
+            "from": ""
+        },
+        {
+            "answer": "揉雪人改造型",
+            "result": "战斗胜利获得410经验",
+            "from": "纪寒宸"
+        }
+    ]
+}
+{
+    "id": 62,
+    "title" : "此地无银",
+    "value": [
+        {
+            "answer": "相信",
+            "result": "无",
+            "from": ""
+        },
+        {
+            "answer": "不相信",
+            "result": "137600金币",
+            "from": "纪寒宸"
+        }
+    ]
+}
+{
+    "id": 63,
+    "title" : "皇帝的胡话",
+    "value": [
+        {
+            "answer": "是",
+            "result": "奖励137600金币",
+            "from": "纪寒宸"
+        },
+        {
+            "answer": "不是",
+            "result": "奖励137600金币",
+            "from": "枫"
+        }
+    ]
+}
+{
+    "id": 64,
+    "title" : "一滴水的经历",
+    "value": [
+        {
+            "answer": "会",
+            "result": "无",
+            "from": "枫"
+        },
+        {
+            "answer": "不会",
+            "result": "奖励141200金币",
+            "from": "纪寒宸"
+        }
+    ]
+}
+{
+    "id": 65,
+    "title" : "出行新规定",
+    "value": [
+        {
+            "answer": "赞同",
+            "result": "无",
+            "from": "枫"
+        },
+        {
+            "answer": "不赞同",
+            "result": "奖励141200金币",
+            "from": "纪寒宸"
+        }
+    ]
+}
+{
+    "id": 66,
+    "title" : "专属麻将",
+    "value": [
+        {
+            "answer": "4个",
+            "result": "无",
+            "from": ""
+        },
+        {
+            "answer": "144个",
+            "result": "奖励金币141200",
+            "from": "枫"
+        }
+    ]
+}
+{
+    "id": 67,
+    "title" : "加勒比海盗",
+    "value": [
+        {
+            "answer": "战斗",
+            "result": "奖励经验430点",
+            "from": "纪寒宸"
+        },
+        {
+            "answer": "交钱逃跑",
+            "result": "",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 68,
+    "title" : "无偿献血",
+    "value": [
+        {
+            "answer": "10cc",
+            "result": "奖励经验430点",
+            "from": "纪寒宸"
+        },
+        {
+            "answer": "20cc",
+            "result": "扣除20血量，白色装备",
+            "from": ""
+        },
+        {
+            "answer": "50cc",
+            "result": "无",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 69,
+    "title" : "折翼的天使",
+    "value": [
+        {
+            "answer": "撕衣服治疗她",
+            "result": "奖励1级装备",
+            "from": ""
+        },
+        {
+            "answer": "让他实现愿望",
+            "result": "紫色猪卷轴",
+            "from": "黄柏欣"
+        }
+    ]
+}
+{
+    "id": 70,
+    "title" : "折翼的天使",
+    "value": [
+        {
+            "answer": "撕衣服治疗她",
+            "result": "奖励1级装备",
+            "from": ""
+        },
+        {
+            "answer": "让他实现愿望",
+            "result": "紫色猪卷轴",
+            "from": "黄柏欣"
+        }
+    ]
+}
+{
+    "id": 71,
+    "title" : "一朵黑色玫瑰",
+    "value": [
+        {
+            "answer": "摘它",
+            "result": "",
+            "from": ""
+        },
+        {
+            "answer": "烧了他",
+            "result": "中毒，魔法防御-1",
+            "from": ""
+        },
+        {
+            "answer": "卖了它",
+            "result": "奖励148400金币",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 72,
+    "title" : "垂死挣扎的海马",
+    "value": [
+        {
+            "answer": "将河水喂海马",
+            "result": "+5海马碎片",
+            "from": ""
+        },
+        {
+            "answer": "把它卖了",
+            "result": "155600金币",
+            "from": ""
+        },
+        {
+            "answer": "将它放回河里",
+            "result": "",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 73,
+    "title" : "伤心的女子",
+    "value": [
+        {
+            "answer": "安慰她是美女",
+            "result": "无",
+            "from": ""
+        },
+        {
+            "answer": "以后娶她为妻",
+            "result": "",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 74,
+    "title" : "美妙的音乐",
+    "value": [
+        {
+            "answer": "追寻音乐的源头",
+            "result": "英雄魔法防御降低1",
+            "from": ""
+        },
+        {
+            "answer": "不听音乐赶路",
+            "result": "",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 75,
+    "title" : "抽烟的小混混",
+    "value": [
+        {
+            "answer": "阻止他抽烟",
+            "result": "-10血",
+            "from": ""
+        },
+        {
+            "answer": "跟他一起抽烟",
+            "result": "+500天赋",
+            "from": ""
+        },
+        {
+            "answer": "我只是个路人",
+            "result": "",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 76,
+    "title" : "冬天的仙人掌",
+    "value": [
+        {
+            "answer": "摘花",
+            "result": "战斗300万的精英鳄鱼+精英小鹿",
+            "from": ""
+        },
+        {
+            "answer": "烧了它",
+            "result": "",
+            "from": ""
+        }
+    ]
+}
+{
+    "id": 77,
+    "title" : "被啃过的蛋糕",
+    "value": [
+        {
+            "answer": "追查凶手",
+            "result": "",
+            "from": ""
+        },
+        {
+            "answer": "吃蛋糕",
+            "result": "血量加10",
+            "from": "黄柏欣"
+        }
+    ]
+}
+{
+    "id": 78,
+    "title" : "如果鸭子长大了",
+    "value": [
+        {
+            "answer": "鸭子",
+            "result": "金币奖励177200",
+            "from": ""
+        },
+        {
+            "answer": "天鹅",
+            "result": "",
+            "from": ""
+        }
+    ]
+}
