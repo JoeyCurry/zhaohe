@@ -1,0 +1,14 @@
+<view class="tactic-text-container">
+<view class='text-title text-bold danger'>置换技巧：</view>
+    <view>沙盘里的怪物是跟你上阵的怪物的位置相关的.</view>
+    <view>比如</view>
+    <image mode="aspectFit" style="width: 100%" src='cloud://jiangjun-ee2d30.6a69-jiangjun-ee2d30/新手攻略/置换1.jpg'></image>
+    <image mode="aspectFit" style="width: 100%" src='cloud://jiangjun-ee2d30.6a69-jiangjun-ee2d30/新手攻略/置换2.jpg'></image>
+    上图的是沙盘情况。有一个紫色的飞机，一个蓝色的炮姐。下图是当前的阵容位置。
+当我把飞机和炮姐互换一下位置，如下图、
+  <image mode="aspectFit" style="width: 100%" src='cloud://jiangjun-ee2d30.6a69-jiangjun-ee2d30/新手攻略/置换3.jpg'></image>
+  沙盘里的情况就会变成
+  <image mode="aspectFit" style="width: 100%" src='cloud://jiangjun-ee2d30.6a69-jiangjun-ee2d30/新手攻略/置换4.jpg'></image>
+  这就是置换了。
+置换的好处是你可以少培养一点家族。只培养一两个主力就可以了
+</view>

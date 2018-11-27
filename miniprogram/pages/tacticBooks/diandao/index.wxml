@@ -1,0 +1,8 @@
+<view class="tactic-text-container">
+  <view class='text-title text-bold danger'>垫刀方法：</view>
+  <view>所谓垫刀就是基于这游戏的出蛋顺序是固定不变的（可能会有个别玩家的顺序和网上流传的垫刀图不一样，这种情况你只能自己记录一轮顺序了）。</view>
+  <view>用垫刀图举例好了。</view>
+  <image style="width: 100%" src='../../../images/pic.png' mode='aspectFit'></image>
+  <view>比如，你刚出了一个红蛋，那么你的位置就在序号68那里，然后你接下来会连续出两个绿色的蛋，然后会出一个蓝色的蛋，再接着出3个绿色的蛋，再一个橙色的蛋，这时你的位置在序号75.</view>
+  <view>因为各个颜色的蛋所出的卡片数量是不一样的（几率一样）所以很多人都推荐绿色的蛋用一二三章来出，绿色以上的蛋用当前你能出的最高章节来出，以节省体力，加大卡片的收集效率。</view>
+</view>

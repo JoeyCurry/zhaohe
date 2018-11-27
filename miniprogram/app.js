@@ -8,19 +8,6 @@ App({
         traceUser: true,
       })
     }
-    wx.cloud.callFunction({
-      name: 'getName',
-      data: {}
-    }).then((res) => {
-      this.globalData = {
-        name: res.result.name
-      }
-    }).catch((err) => {
-      this.globalData = {
-        name: ''
-      }
-      console.error('getName', err)
-    })
   },
 
   globalData: {

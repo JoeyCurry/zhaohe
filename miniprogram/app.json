@@ -4,7 +4,13 @@
     "pages/eventSeach/index",
     "pages/eventDetail/index",
     "pages/tactic/index",
-    "pages/tacticBooks/xinshougonglue/index"
+    "pages/tacticBooks/xinshougonglue/index",
+    "pages/tacticBooks/zhihuan/index",
+    "pages/tacticBooks/heian/index",
+    "pages/tacticBooks/zhuangbei/index",
+    "pages/tacticBooks/juanzhou/index",
+    "pages/tacticBooks/diandao/index",
+    "pages/tacticBooks/zuanshi/index"
   ],
   "window": {
     "backgroundColor": "#fff",

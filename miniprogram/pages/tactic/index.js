@@ -7,7 +7,55 @@ const tacticList = [
     form: 'taptap',
     date: '2018-11-11 09:28:26',
     url: '../tacticBooks/xinshougonglue/index'
-  }
+  },
+  {
+    title: '置换',
+    avatar: 'https://6a69-jiangjun-ee2d30-1257948812.tcb.qcloud.la/avatar/白夜黑猫.jpg?sign=9afec7bb887dc8ba6c20464c0cd51c1a&t=1543308006',
+    author: '白夜黑猫',
+    form: 'taptap',
+    date: '2018-11-11 09:28:26',
+    url: '../tacticBooks/zhihuan/index'
+  },
+  {
+    title: '黑暗叠等级',
+    avatar: 'https://6a69-jiangjun-ee2d30-1257948812.tcb.qcloud.la/avatar/白夜黑猫.jpg?sign=9afec7bb887dc8ba6c20464c0cd51c1a&t=1543308006',
+    author: '白夜黑猫',
+    form: 'taptap',
+    date: '2018-11-11 09:28:26',
+    url: '../tacticBooks/heian/index'
+  },
+  {
+    title: '装备相关',
+    avatar: 'https://6a69-jiangjun-ee2d30-1257948812.tcb.qcloud.la/avatar/白夜黑猫.jpg?sign=9afec7bb887dc8ba6c20464c0cd51c1a&t=1543308006',
+    author: '白夜黑猫',
+    form: 'taptap',
+    date: '2018-11-11 09:28:26',
+    url: '../tacticBooks/zhuangbei/index'
+  },
+  {
+    title: '卷轴相关',
+    avatar: 'https://6a69-jiangjun-ee2d30-1257948812.tcb.qcloud.la/avatar/白夜黑猫.jpg?sign=9afec7bb887dc8ba6c20464c0cd51c1a&t=1543308006',
+    author: '白夜黑猫',
+    form: 'taptap',
+    date: '2018-11-11 09:28:26',
+    url: '../tacticBooks/juanzhou/index'
+  },
+  {
+    title: '垫刀相关',
+    avatar: 'https://6a69-jiangjun-ee2d30-1257948812.tcb.qcloud.la/avatar/白夜黑猫.jpg?sign=9afec7bb887dc8ba6c20464c0cd51c1a&t=1543308006',
+    author: '白夜黑猫',
+    form: 'taptap',
+    date: '2018-11-11 09:28:26',
+    url: '../tacticBooks/diandao/index'
+  },
+  {
+    title: '钻石相关',
+    avatar: 'https://6a69-jiangjun-ee2d30-1257948812.tcb.qcloud.la/avatar/白夜黑猫.jpg?sign=9afec7bb887dc8ba6c20464c0cd51c1a&t=1543308006',
+    author: '白夜黑猫',
+    form: 'taptap',
+    date: '2018-11-11 09:28:26',
+    url: '../tacticBooks/zuanshi/index'
+  },
 ]
 
 Page({

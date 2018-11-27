@@ -27,13 +27,25 @@
 }
 
 .tactic-text-container {
-  font-size: 30rpx;
+  font-size: 34rpx;
   color: rgba(0, 0, 0, 0.8);
   padding: 6px 12px
 }
 
 .text-bold {
   font-weight: bold
+}
+
+.text-title {
+  margin: 6px 0;
+}
+
+.text-margin {
+  margin: 6px 0;
+}
+
+.danger {
+  color: #ed4d60;
 }
 
 @import 'weui.wxss';

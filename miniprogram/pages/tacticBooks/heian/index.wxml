@@ -1,0 +1,10 @@
+<view class='tactic-text-container'>
+  <view class='text-title text-bold danger'>黑暗叠等级：</view>
+  <view>这个通常都是跟上面的置换放在一起用的。</view>
+  <view>具体是魔法系天赋里的一个叫黑暗符文的天赋。下图</view>
+  <image mode="aspectFit" style="width: 100%" src='cloud://jiangjun-ee2d30.6a69-jiangjun-ee2d30/新手攻略/天赋.jpeg'></image>
+  <image mode="aspectFit" style="width: 100%" src='cloud://jiangjun-ee2d30.6a69-jiangjun-ee2d30/新手攻略/天赋1.jpg'></image>
+  <view>流程一般是，随便选一个不是主力的怪专门四消。第一个橙色白色的尽量4消(两步4消也是可以接受的），绿色及以上3消就够。大部分情况下第一个橙色应该是+30左右，好点的会+40。第二个橙色的（大部分图这个时候黑暗天赋已经点出来了），这时候不仅白色的要4消，绿色的也要4消。蓝色的即以上要不要4消看你自己已经推图时的实际情况了。这个橙色的一般会再+100上下浮动。前期的图这个橙色落地后基本就够用了。后期可以叠第三个橙的，叠到+200,或者第二个橙的直接叠到+150以上。具体看你个人的消除技巧了。</view>
+  <view>叠好等级以后把这个叠等级的怪置换成你的主力怪或者需要下地的怪。</view>
+  <view>这里顺带讲下，一般我们说的 落地等级 是指怪物卡片等级加上装备上加这个怪物的等级之和~比如炮姐卡片等级20.。装备上加了18级炮姐等级，那么这个炮姐的落地等级就是38。</view>
+</view>

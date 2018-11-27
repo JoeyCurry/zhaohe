@@ -57,6 +57,15 @@ Page({
   },
 
   onLoad: function() {
+    wx.cloud.callFunction({
+      name: 'getName',
+      data: {}
+    }).then((res) => {
+      app.globalData.name = res.result.name
+    }).catch((err) => {
+      app.globalData.name = ''
+      console.error('getName', err)
+    })
     this.onGetOpenid()
     this.activeFn()
   },
@@ -113,6 +122,7 @@ Page({
         console.error('[云函数] [login] 调用失败', err)
         wx.showToast({
           title: '登录失败，请联系我',
+          icon: 'none'
         })
       }
     })
