@@ -1,4 +1,42 @@
 <!--pages/tacticBook/xinshougonglue/index.wxml-->
 <view class="tactic-text-container">
   <view>备注-、-以下所讲都是一些主流思路。这游戏怎么都能玩，毕竟单机，慢慢来就是了。</view>
+  <view class="text-bold">一。 主流常用的卡片名字与玩家间的昵称~ </view>  
+  炮姐=冰芯灵：天赋先所有都点一点，然后先满镜像，再满技能加强就好。
+  <image mode="aspectFit" style="width: 100%" src='cloud://jiangjun-ee2d30.6a69-jiangjun-ee2d30/新手攻略/炮姐.jpg'></image>
+  锤手=锤子=恶魔锤手：天赋先点满不朽和近反，然后可以满熟练加强和战吼眩晕。初期可以先不点第一技能。被击眩晕最好先别点。
+  <image mode="aspectFit" style="width: 100%" src='cloud://jiangjun-ee2d30.6a69-jiangjun-ee2d30/新手攻略/锤手.jpg'></image>
+  地龙=遁地神龙：天赋也是先都点上一点，然后先满镜像，然后沉默和三连击轮流点。
+  <image mode="aspectFit" style="width: 100%" src='cloud://jiangjun-ee2d30.6a69-jiangjun-ee2d30/新手攻略/地龙.jpg'></image>
+  提莫=迅猛斥候：天赋先满技能加强，其次满魅惑。没钱先魅惑也行。如果准备用好久的话，提莫的天赋可以点满，基本没啥浪费的。
+  <image mode="aspectFit" style="width: 100%" src='cloud://jiangjun-ee2d30.6a69-jiangjun-ee2d30/新手攻略/提莫.jpg'></image>
+  大力=大锤=大力神：天赋直接走右边的。有钱先满技能加强，没钱就点复活。
+  <image mode="aspectFit" style="width: 100%" src='cloud://jiangjun-ee2d30.6a69-jiangjun-ee2d30/新手攻略/大力.jpg'></image>
+  仙人掌：天赋满技能加强就好了。被动击退和分裂都最好别点。
+  <image mode="aspectFit" style="width: 100%" src='cloud://jiangjun-ee2d30.6a69-jiangjun-ee2d30/新手攻略/仙人掌.jpg'></image>
+    剩下的一些就是
+  
+    <view>牛头=牛魔王。飞机=莱特雄机家族。拆迁=拆迁大队。死神=鬼翼死神。</view> 
+
+    <view>骨龙=遗迹骨龙。幽魂=邪恶幽魂。鳄鱼=蛮荒巨鳄。刀郎=鬼刀斩月。</view> 
+
+    <view>嘤嘤龙=鹰爪飞龙。龙虾=水龙神。鲨鱼=利刃鬼鲛。。。。。、</view>  
+
+    <view class="text-bold">二.刷初始</view>
+
+    <view>这个还是老样子。对于什么都不懂的萌新来说还是不建议花精力刷初始。</view>
+    <view>要是你花了很长时间刷了个大家都说好的初始，然后因为你游戏机制的不熟悉，玩起来感觉还是那么的卡，达不到心理预期，你就会弃坑的。。就是白刷了-、-</view>
+    <view>所以，刷初始是建立在对游戏机制有一定的熟悉了。包括主流的推图方法，游戏的大致玩法与目的。</view>
+    <view>因为现在抽宝箱出了个积分系统。相对来说初始的重要性进一步降低了。</view>
+    <view>1，炮姐碎片暴击150张</view>
+    <view>2，地龙，提莫，牛头，其中之一整卡，或者几十炮姐碎片。</view>
+    <view>3，SS整卡或者地龙碎片100上下。</view>
+    <view>4，小鹿，锤子整卡。</view>
+    <view>5，随便什么。。。</view>
+    <view>不刷初始也能玩的。根据现在的积分系统。用不了多久就能出主流推荐的各种卡片。</view>
+    <view>游戏流程。。</view>
+    <view>如果不急的话。随便怎么来都行。感觉战力不行就停停。刷刷装备提升提升卡片等级。或者养些克制当前章节的卡片。这游戏是 远程克肉盾，肉盾克近战，近战克远程。根据卡片的技能配置看克制程度。。</view>
+    <view>这里谈一下主流玩法</view>
+    <view>如上初始，第一档就什么都不用管。如果积分奖池里有炮姐碎片就刷炮姐碎片出来，直接炮姐开场。如果没有就看地龙。再没有就慢慢来。</view>
+    <view>因为有了积分系统，实际上再奖池里有炮姐碎片的情况下，导致用地龙过渡的程度大大降低。推荐直接出炮姐。小鹿都可以随便练练就够。</view>
 </view>

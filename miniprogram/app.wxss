@@ -32,4 +32,8 @@
   padding: 6px 12px
 }
 
+.text-bold {
+  font-weight: bold
+}
+
 @import 'weui.wxss';
