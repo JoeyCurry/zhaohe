@@ -2,7 +2,9 @@
   "pages": [
     "pages/index/index",
     "pages/eventSeach/index",
-    "pages/eventDetail/index"
+    "pages/eventDetail/index",
+    "pages/tactic/index",
+    "pages/tacticBooks/xinshougonglue/index"
   ],
   "window": {
     "backgroundColor": "#fff",

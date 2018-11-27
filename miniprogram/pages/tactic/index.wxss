@@ -1,0 +1,29 @@
+/* pages/tactic/index.wxss */
+
+.tactic-list-container {
+
+}
+
+.tactic-list-author-container {
+  display: flex;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.tactic-avatar {
+  height: 40rpx;
+  width: 40rpx;
+  margin-right: 5rpx;
+  border-radius: 50%
+}
+
+.tactic-author {
+  font-size: 30rpx;
+  color: #666;
+}
+
+.tactic-date {
+  font-size: 30rpx;
+  color: #666;
+  margin-left: 6px;
+}

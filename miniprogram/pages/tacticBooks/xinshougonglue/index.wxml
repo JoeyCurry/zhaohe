@@ -1,0 +1,4 @@
+<!--pages/tacticBook/xinshougonglue/index.wxml-->
+<view class="tactic-text-container">
+  <view>备注-、-以下所讲都是一些主流思路。这游戏怎么都能玩，毕竟单机，慢慢来就是了。</view>
+</view>

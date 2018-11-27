@@ -26,4 +26,10 @@
   align-items: center;
 }
 
+.tactic-text-container {
+  font-size: 30rpx;
+  color: rgba(0, 0, 0, 0.8);
+  padding: 6px 12px
+}
+
 @import 'weui.wxss';

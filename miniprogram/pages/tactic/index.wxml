@@ -1,0 +1,62 @@
+<view class="page">
+  <view class="event-search-bar">
+    <view class="page__bd">
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                    <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+                    <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                        <icon type="clear" size="14"></icon>
+                    </view>
+                </view>
+                <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                    <icon class="weui-icon-search" type="search" size="14"></icon>
+                    <view class="weui-search-bar__text">搜索</view>
+                </label>
+            </view>
+            <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+        </view>
+        <!-- <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+            <navigator url="" class="weui-cell" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">
+                    <view>实时搜索文本</view>
+                </view>
+            </navigator>
+        </view> -->
+    </view>
+  </view>
+    <view class="weui-cells weui-cells_after-title search-result-container">
+            <!-- <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">cell standard</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator> -->
+          <navigator 
+            wx:for="{{searchData}}"
+            wx:key="index" 
+            url="{{item.url}}"
+            class="weui-cell weui-cell_access" 
+            hover-class="weui-cell_active">
+              <view class=" tactic-list-container weui-cell__bd">
+                <view class="weui-cell__bd">{{item.title}}</view>
+                <view class="tactic-list-author-container">
+                  <image class="tactic-avatar" src="{{item.avatar}}" mode="aspectFit"></image>
+                  <view class="tactic-author">{{item.author}}</view>
+                  <view class="tactic-date">{{item.date}}</view>
+                </view>
+              </view>
+              <view class="weui-cell__ft weui-cell__ft_in-access">
+              </view>
+          </navigator>
+    </view>
+    <view wx:if="{{showFeedback}}" class="search-result-container search-feedback-container">
+      <view>没找到你想要的攻略呢，你可以反馈给我看你想要知道什么呢</view>
+      <button bindtap='feedback' auto-height class="weui-btn mini-btn search-feedback" type="primary" size="mini">反馈</button>
+    </view>
+    <modal catchtouchmove='true' hidden="{{hiddenmodalput}}" title="反馈" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">  
+    <view class="modal-container">
+      <input type='text' class="feedback-input" bindinput="bindNameInput" value="{{name}}" placeholder="怎么称呼你呢" maxlength="255" />
+      <textarea class="weui-textarea" class="feedback-textarea" bindinput='bindFeedback' maxlength='300' placeholder="感谢您的反馈，我会持续优化的..." style="height: 200rpx" />
+    </view>
+  </modal>
+</view>

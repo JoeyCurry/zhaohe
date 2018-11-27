@@ -21,6 +21,10 @@ App({
       }
       console.error('getName', err)
     })
-    
   },
+
+  globalData: {
+    openid: '',
+    name: ''
+  }
 })

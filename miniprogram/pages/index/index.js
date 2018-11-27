@@ -10,7 +10,7 @@ Page({
     activity: {
       '-1': '程序错误，请联系我',
       0: '宝藏岛宝藏图双倍',
-      1: '刷图宝箱金币双倍',
+      1: '宝蛋金币数翻倍',
       2: '异次元裂缝卷轴双倍',
       3: '勇者悬赏金币双倍',
       4: '无尽的远征卷轴双倍',
@@ -83,6 +83,15 @@ Page({
     })
   },
 
+  tactic() {
+    wx.navigateTo({
+      url: '../tactic/index',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+
   toggleShowEgg() {
     this.setData({
       showMore: !this.data.showMore
@@ -102,8 +111,8 @@ Page({
       },
       fail: err => {
         console.error('[云函数] [login] 调用失败', err)
-        wx.navigateTo({
-          url: '../deployFunctions/deployFunctions',
+        wx.showToast({
+          title: '登录失败，请联系我',
         })
       }
     })
@@ -387,8 +396,9 @@ Page({
       success: function (res) {
       },
       fail: err => {
-        icon: 'none',
-          console.error('[数据库] [更新记录] 失败：', err)
+        wx.showToast({
+          title: '更新数据库失败，请咨询我',
+        })
       }
     })
   }
