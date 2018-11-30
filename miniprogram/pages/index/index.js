@@ -66,9 +66,21 @@ Page({
       app.globalData.name = ''
       console.error('getName', err)
     })
+    // this.queryDB()
     this.onGetOpenid()
     this.activeFn()
   },
+
+  // queryDB() {
+  //   wx.cloud.callFunction({
+  //     name: 'queryEgg',
+  //     data: {}
+  //   }).then((res) => {
+  //     console.log(res)
+  //   }).catch((err) => {
+  //     console.error(err)
+  //   })
+  // },
 
   // 计算当天的活动，及下一天活动 
   activeFn() {
@@ -114,7 +126,7 @@ Page({
       data: {},
       success: res => {
         console.log('[云函数] [login] user openid: ', res.result.openid)
-        app.globalData.openid = res.result.openid
+        // app.globalData.openid = res.result.openid
         this.onQueryDB()
 
       },

@@ -19,13 +19,15 @@ Page({
     this.setData({
       inputVal: "",
       inputShowed: false,
-      searchData: this.data.fullData
+      searchData: this.data.fullData,
+      showFeedback: false
     });
   },
   clearInput: function () {
     this.setData({
       inputVal: "",
-      searchData: this.data.fullData
+      searchData: this.data.fullData,
+      showFeedback: false
     });
   },
   inputTyping: function (e) {

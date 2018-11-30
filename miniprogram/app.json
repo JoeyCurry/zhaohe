@@ -10,7 +10,8 @@
     "pages/tacticBooks/zhuangbei/index",
     "pages/tacticBooks/juanzhou/index",
     "pages/tacticBooks/diandao/index",
-    "pages/tacticBooks/zuanshi/index"
+    "pages/tacticBooks/zuanshi/index",
+    "pages/tacticBooks/jiemitext/index"
   ],
   "window": {
     "backgroundColor": "#fff",
