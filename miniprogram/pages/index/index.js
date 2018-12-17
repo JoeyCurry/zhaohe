@@ -47,6 +47,8 @@ Page({
     nextIndex: -1,
     hiddenmodalput: true,
     inputValue: '',
+    inputAccount: '',
+    inputEditAccount: '',
     eggArr: eggArr,
     loading: true,
     total: 0,
@@ -54,7 +56,18 @@ Page({
     todayActivity: -1,
     nextActivity: -1,
     showMore: false,
-    showFeedbackCheck: false
+    showFeedbackCheck: false,
+    accountList: [],
+    defaultAccount: {
+      name: '默认',
+      id: 0
+    },
+    currentAccount: {
+      name: '默认',
+      id: 0
+    },
+    hiddenModalAdd: true,
+    hiddenModalEdit: true
   },
 
   onLoad: function() {
@@ -113,6 +126,233 @@ Page({
       complete: function (res) { },
     })
   },
+
+  /**
+   * 多账户切换开始
+   */
+  changeAccount() {
+    console.log(this.data.accountList)
+    const db = wx.cloud.database()
+    db.collection('user_eggs').doc(this.data.DB_id).get({
+      success: res => {
+        let names = res.data.accountList.map((item, index) => item.name)
+        let accountName = res.data.accountName || '默认'
+        let defaultAccount = {
+          id: 0,
+          name: accountName
+        }
+        let accountList = [defaultAccount]
+        accountList[0].historyArr = res.data[0].historyArr
+        accountList[0].currentIndex = res.data[0].currentIndex
+        if (res.data.accountList && res.data.accountList.length) {
+          accountList = accountList.concat(res.data[0].accountList)
+        }
+        wx.showActionSheet({
+          itemList: names,
+          success: res => {
+            if (!res.cancel) {
+              let currentAccount = accountList[res.tapIndex]
+              let historyArr = currentAccount.historyArr
+              let currentIndex = currentAccount.currentIndex
+              let total = this.sumEgg(historyArr)
+              this.predict(historyArr[historyArr.length - 1])
+              let nextIndex = -1
+              console.log(currentIndex)
+              if (currentIndex !== -1) {
+                nextIndex = currentIndex === 155 ? 1 : currentIndex + 1
+              }
+              console.log(nextIndex)
+              this.setData({
+                historyArr,
+                currentIndex,
+                currentAccount,
+                total,
+                nextIndex,
+                nextEgg: nextIndex === -1 ? [-1] : [eggArr[nextIndex - 1]],
+              })
+            }
+          }
+        });
+      },
+      fail: err => {
+        console.error(err)
+      }
+    })
+    
+    
+  },
+
+  // 打开添加账号dialog
+  addAccount() {
+    this.setData({
+      hiddenModalAdd: false
+    })
+  },
+
+  // 编辑账户 
+  editAccount() {
+    this.setData({
+      hiddenModalEdit: false,
+      inputEditAccount: this.data.currentAccount.name
+    })
+  },
+
+  // 删除账号
+  delAccount() {
+    wx.showModal({
+      title: '删除账号',
+      content: '是否确认删除此账号，删除后将无法找回，三思...',
+      confirmText: "确认",
+      cancelText: "取消",
+      success: res => {
+        console.log(res);
+        if (res.confirm) {
+          wx.showLoading({
+            title: ''
+          })
+          let accountList = [...this.data.accountList]
+          accountList.splice(this.data.currentAccount.id, 1)
+          let currentAccount = accountList[0]
+          accountList.shift()
+          const db = wx.cloud.database()
+          db.collection('user_eggs').doc(this.data.DB_id).update({
+            data: {
+              accountList,
+            },
+            success: res => {
+              try {
+                accountList.unshift(this.data.defaultAccount)
+                console.log(accountList)
+                let historyArr = currentAccount.historyArr
+                let currentIndex = currentAccount.currentIndex
+                let total = this.sumEgg(historyArr)
+                this.predict(historyArr[historyArr.length - 1])
+                wx.hideLoading()
+                this.setData({
+                  hiddenModalEdit: true,
+                  accountList,
+                  currentAccount,
+                  historyArr,
+                  currentIndex,
+                  total
+                })
+              } catch (err) {
+                console.error(err)
+              }
+            },
+            fail: err => {
+              wx.showToast({
+                title: '更新数据库失败，请咨询我',
+              })
+            }
+          })
+        } else {
+          console.log('取消')
+        }
+      }
+    });
+  },
+
+  cancelEdit() {
+    this.setData({
+      hiddenModalEdit: true
+    })
+  },
+
+  bindAccountInput(e) {
+    this.setData({
+      inputAccount: e.detail.value.trim()
+    })
+  },
+
+  bindEditAccountInput(e) {
+    this.setData({
+      inputEditAccount: e.detail.value.trim()
+    })
+  },
+
+  // 确认修改账号
+  confirmEdit() {
+    if (this.data.inputEditAccount) {
+
+    } else {
+      this.setData({
+        hiddenModalEdit: true
+      })
+    }
+  },
+
+  // 确认添加 
+  confirmAdd() {
+    if(this.data.accountList.length < 6) {
+      if (this.data.inputAccount) {
+        wx.showLoading({
+          title: '',
+        })
+        let accountList = [...this.data.accountList]
+        let accountNames = accountList.map((item, index)=> item.name)
+        if (accountNames.indexOf(this.data.inputAccount) === -1) {
+          accountList.shift()
+          accountList.push({
+            id: accountList.length ? accountList[accountList.length - 1].id + 1 : 1,
+            date: new Date().getTime(),
+            historyArr: [[]],
+            name: this.data.inputAccount,
+            currentIndex: -1
+          })
+          const db = wx.cloud.database()
+          db.collection('user_eggs').doc(this.data.DB_id).update({
+            data: {
+              accountList,
+            },
+            success: res => {
+              try {
+                accountList.unshift(this.data.defaultAccount)  
+                console.log(accountList)
+                wx.hideLoading()
+                this.setData({
+                  hiddenModalAdd: true,
+                  accountList
+                })
+              } catch (err) {
+                console.error(err)
+              }
+            },
+            fail: err => {
+              wx.showToast({
+                title: '更新数据库失败，请咨询我',
+              })
+            }
+          })
+        } else {
+          wx.showToast({
+            title: '账号名重复，请重新填写',
+            icon: 'none',
+            duration: 3000
+          })
+        }
+      } else {
+        wx.showToast({
+          title: '请输入新账号名称',
+          icon: 'none',
+          duration: 3000
+        })
+      }
+    } else {
+      this.setData({
+        hiddenModalAdd: true
+      })
+    }
+  },
+
+  cancelAdd() {
+    this.setData({
+      hiddenModalAdd: true
+    })
+  },
+  /**
+   * 多账户切换结束
+   */
 
   toggleShowEgg() {
     this.setData({
@@ -393,6 +633,17 @@ Page({
         if (res.data.length) {
           if (res.data[0].currentIndex === -1) {
             let total = this.sumEgg(res.data[0].historyArr)
+            let accountName = res.data.accountName || '默认'
+            let defaultAccount = {
+              id: 0,
+              name: accountName
+            }
+            let accountList = [defaultAccount]
+            accountList[0].historyArr = res.data[0].historyArr
+            accountList[0].currentIndex = res.data[0].currentIndex
+            if (res.data[0].accountList && res.data[0].accountList.length) {
+              accountList = accountList.concat(res.data[0].accountList)
+            }
             this.predict(res.data[0].historyArr[res.data[0].historyArr.length - 1])
             this.setData({
               historyArr: res.data[0].historyArr,
@@ -400,17 +651,32 @@ Page({
               nextIndex: -1,
               DB_id: res.data[0]._id,
               loading: false,
-              total
+              accountList: accountList,
+              total,
+              defaultAccount
             })
           } else {
             let nextIndex = res.data[0].currentIndex === 155 ? 1 : res.data[0].currentIndex + 1
+            let accountName = res.data.accountName || '默认'
+            let defaultAccount = {
+              id: 0,
+              name: accountName
+            }
+            let accountList = [defaultAccount]
+            accountList[0].historyArr = res.data[0].historyArr
+            accountList[0].currentIndex = res.data[0].currentIndex
+            if (res.data[0].accountList && res.data[0].accountList.length) {
+              accountList = accountList.concat(res.data[0].accountList)
+            }
             this.setData({
               historyArr: res.data[0].historyArr,
               currentIndex: res.data[0].currentIndex,
               nextIndex,
               nextEgg: nextIndex === -1 ? [-1] : [eggArr[nextIndex - 1]],
               DB_id: res.data[0]._id,
-              loading: false
+              accountList,
+              loading: false,
+              defaultAccount
             })
           }
         } else {
@@ -428,8 +694,21 @@ Page({
   // 更新数据
   onDBUpdate: function (data) {
     const db = wx.cloud.database()
+    let updateDate = data
+    if(this.data.currentAccount.id !== 0) {
+      let accountList = [...this.data.accountList]
+      console.log(accountList)
+      accountList[this.data.currentAccount.id] = {
+        ...accountList[this.data.currentAccount.id],
+        ...data
+      }
+      accountList.shift()
+      updateDate = {
+        accountList
+      }
+    }
     db.collection('user_eggs').doc(this.data.DB_id).update({
-      data: data,
+      data: updateDate,
       success: function (res) {
       },
       fail: err => {
