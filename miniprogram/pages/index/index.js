@@ -53,7 +53,8 @@ Page({
     beginDate: 1542470400000,
     todayActivity: -1,
     nextActivity: -1,
-    showMore: false
+    showMore: false,
+    showFeedbackCheck: false
   },
 
   onLoad: function() {
@@ -126,9 +127,13 @@ Page({
       data: {},
       success: res => {
         console.log('[云函数] [login] user openid: ', res.result.openid)
-        // app.globalData.openid = res.result.openid
+        app.globalData.openid = res.result.openid
+        if (res.result.openid === 'oPGrr4tHoWot5sAZ_c36gP7dRpZY') {
+          this.setData({
+            showFeedbackCheck: true
+          })
+        }
         this.onQueryDB()
-
       },
       fail: err => {
         console.error('[云函数] [login] 调用失败', err)
@@ -137,6 +142,16 @@ Page({
           icon: 'none'
         })
       }
+    })
+  },
+
+  // 更新反馈数据
+  feedbackCheck() {
+    wx.cloud.callFunction({
+      name: 'updateFeedback',
+      data: {},
+      success: res => {console.log(res)},
+      fail: err => {console.error(err)}
     })
   },
 

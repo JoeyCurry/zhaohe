@@ -149,6 +149,8 @@
     <image style="width: 700rpx;" src='../../images/pic.png' mode='widthFix'></image>
   </view>
 
+  <button v-if="showFeedbackCheck" bindtap='feedbackCheck'>FeedbackCheck</button>
+
 </view>
 <view class="container" wx:else>
   <text style="margin-top: 200rpx">正在获取数据...</text>
