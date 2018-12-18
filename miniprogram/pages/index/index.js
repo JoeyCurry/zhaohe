@@ -131,48 +131,64 @@ Page({
    * 多账户切换开始
    */
   changeAccount() {
-    console.log(this.data.accountList)
+    wx.showLoading({
+      title: '',
+    })
     const db = wx.cloud.database()
     db.collection('user_eggs').doc(this.data.DB_id).get({
       success: res => {
-        let names = res.data.accountList.map((item, index) => item.name)
-        let accountName = res.data.accountName || '默认'
-        let defaultAccount = {
-          id: 0,
-          name: accountName
-        }
-        let accountList = [defaultAccount]
-        accountList[0].historyArr = res.data[0].historyArr
-        accountList[0].currentIndex = res.data[0].currentIndex
-        if (res.data.accountList && res.data.accountList.length) {
-          accountList = accountList.concat(res.data[0].accountList)
-        }
-        wx.showActionSheet({
-          itemList: names,
-          success: res => {
-            if (!res.cancel) {
-              let currentAccount = accountList[res.tapIndex]
-              let historyArr = currentAccount.historyArr
-              let currentIndex = currentAccount.currentIndex
-              let total = this.sumEgg(historyArr)
-              this.predict(historyArr[historyArr.length - 1])
-              let nextIndex = -1
-              console.log(currentIndex)
-              if (currentIndex !== -1) {
-                nextIndex = currentIndex === 155 ? 1 : currentIndex + 1
-              }
-              console.log(nextIndex)
-              this.setData({
-                historyArr,
-                currentIndex,
-                currentAccount,
-                total,
-                nextIndex,
-                nextEgg: nextIndex === -1 ? [-1] : [eggArr[nextIndex - 1]],
-              })
-            }
+        try {
+          let accountName = res.data.accountName || '默认'
+          let defaultAccount = {
+            id: 0,
+            name: accountName
           }
-        });
+          let accountList = [defaultAccount]
+          accountList[0].historyArr = res.data.historyArr
+          accountList[0].currentIndex = res.data.currentIndex
+          if (res.data.accountList && res.data.accountList.length) {
+            accountList = accountList.concat(res.data.accountList)
+          }
+          let names = accountList.map((item, index) => item.name)
+          wx.hideLoading()
+          wx.showActionSheet({
+            itemList: names,
+            success: res => {
+              if (!res.cancel) {
+                let currentAccount = accountList[res.tapIndex]
+                let historyArr = currentAccount.historyArr
+                let currentIndex = currentAccount.currentIndex
+                let total = this.sumEgg(historyArr)
+                this.predict(historyArr[historyArr.length - 1])
+                let nextIndex = -1
+                console.log(currentIndex)
+                if (currentIndex !== -1) {
+                  nextIndex = currentIndex === 155 ? 1 : currentIndex + 1
+                  this.setData({
+                    historyArr,
+                    currentIndex,
+                    currentAccount,
+                    total,
+                    nextIndex,
+                    nextEgg: nextIndex === -1 ? [-1] : [eggArr[nextIndex - 1]],
+                  })
+                } else {
+                  this.predict(historyArr[historyArr.length - 1])
+                  this.setData({
+                    historyArr,
+                    currentIndex,
+                    currentAccount,
+                    total,
+                    nextIndex,
+                  })
+                }
+                
+              }
+            }
+          });
+        } catch (err) {
+          console.error(err)
+        }
       },
       fail: err => {
         console.error(err)
@@ -310,9 +326,19 @@ Page({
                 accountList.unshift(this.data.defaultAccount)  
                 console.log(accountList)
                 wx.hideLoading()
+                wx.showToast({
+                  title: '添加成功',
+                  icon: 'success'
+                })
                 this.setData({
                   hiddenModalAdd: true,
-                  accountList
+                  accountList,
+                  currentAccount: accountList[accountList.length - 1],
+                  historyArr: accountList[accountList.length - 1].historyArr,
+                  currentIndex: accountList[accountList.length - 1].currentIndex,
+                  total: 0,
+                  nextIndex: -1,
+                  nextEgg: [-1]
                 })
               } catch (err) {
                 console.error(err)

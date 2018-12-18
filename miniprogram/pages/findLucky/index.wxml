@@ -1,0 +1,13 @@
+<!--pages/findLucky/index.wxml-->
+<view class="lucky-container">
+  <view class="lucky-image-container">
+    <image class="lucky-image" mode="aspectFill" src="cloud://jiangjun-ee2d30.6a69-jiangjun-ee2d30/lucky/luckpic.jpg"></image>
+    <view class="lucky-feedback-container">
+      <view>
+      </view>
+      <view class="lucky-feedback-good-bad">
+        
+      </view>
+    </view>
+  </view>
+</view>

@@ -27,7 +27,7 @@ Page({
       {
         image: '../../images/lucky.png',
         label: '寻找欧皇',
-        url: '../eventSeach/index'
+        url: '../findLucky/index'
       },
       {
         image: '../../images/family.png',

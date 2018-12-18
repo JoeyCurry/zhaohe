@@ -12,7 +12,8 @@
     "pages/tacticBooks/diandao/index",
     "pages/tacticBooks/zuanshi/index",
     "pages/tacticBooks/jiemitext/index",
-    "pages/tools/index"
+    "pages/tools/index",
+    "pages/findLucky/index"
   ],
   "window": {
     "backgroundColor": "#fff",

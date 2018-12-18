@@ -1,0 +1,19 @@
+/* pages/findLucky/index.wxss */
+.lucky-image {
+  width: 100%;
+  height: 400rpx;
+  border-radius: 4px;
+}
+.lucky-image-container {
+  border-radius: 4px;
+  height: 100%;
+}
+.lucky-feedback-container {
+  display: flex;
+}
+.lucky-container {
+  padding: 0 10px;
+}
+.lucky-feedback-good-bad {
+  display: flex
+}
