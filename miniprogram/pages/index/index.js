@@ -50,14 +50,15 @@ Page({
     eggArr: eggArr,
     loading: true,
     total: 0,
-    beginDate: 1542470400000,
-    todayActivity: -1,
-    nextActivity: -1,
+    beginDate: 1545494400000,
+    todayActivity: '',
+    nextActivity: '',
     showMore: false,
     showFeedbackCheck: false
   },
 
   onLoad: function() {
+    this.activeFn()
     wx.cloud.callFunction({
       name: 'getName',
       data: {}
@@ -68,18 +69,29 @@ Page({
       console.error('getName', err)
     })
     this.onGetOpenid()
-    this.activeFn()
   },
 
   // 计算当天的活动，及下一天活动 
   activeFn() {
-    let date = new Date().getTime()
-    const ONEDAY = 24 * 60 * 60 * 1000 // 每一天的毫秒数
-    // 距离制定开始时间有多少天
-    let minusDays = Math.floor((date - this.data.beginDate) / ONEDAY) 
-    this.setData({
-      todayActivity: (minusDays % 8),
-      nextActivity: ((minusDays + 1) % 8) 
+    // let date = new Date().getTime()
+    // const ONEDAY = 24 * 60 * 60 * 1000 // 每一天的毫秒数
+    // // 距离制定开始时间有多少天
+    // let minusDays = Math.floor((date - this.data.beginDate) / ONEDAY) 
+    // this.setData({
+    //   todayActivity: (minusDays % 8),
+    //   nextActivity: ((minusDays + 1) % 8) 
+    // })
+    wx.cloud.callFunction({
+      name: 'getTodayActivity',
+      data: {}
+    }).then((res)=>{
+      // console.log(res.result)
+      this.setData({
+        todayActivity: res.result.todayActivity,
+        nextActivity: res.result.nextActivity
+      })
+    }).catch((e)=>{
+      console.error(e)
     })
   },
 
