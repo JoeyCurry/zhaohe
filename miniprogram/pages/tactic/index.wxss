@@ -1,7 +1,7 @@
 /* pages/tactic/index.wxss */
 
-.tactic-list-container {
-
+.search-result-container {
+  margin-top: 47px;
 }
 
 .tactic-list-author-container {

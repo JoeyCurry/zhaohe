@@ -5,14 +5,14 @@
       <image style="height: 30rpx;width: 30rpx;margin-right: 5rpx" src='../../images/Help.png' mode="aspectFit"></image>
       <text>使用说明</text>
     </view>
-    <view bindtap='tactic' style="padding-right: 30rpx;display:flex;align-items: center;">
+    <!-- <view bindtap='tactic' style="padding-right: 30rpx;display:flex;align-items: center;">
       <image style="height: 30rpx;width: 30rpx;margin-right: 5rpx" src='../../images/tactic.png' mode="aspectFit"></image>
       <text>攻略合集</text>
     </view>
     <view bindtap='search' style="padding-right: 30rpx;display:flex;align-items: center;">
       <image style="height: 30rpx;width: 30rpx;margin-right: 5rpx" src='../../images/search.png' mode="aspectFit"></image>
       <text>奇遇搜索</text>
-    </view>
+    </view> -->
   </view>
   <view style="font-size: 30rpx; margin-left: 30rpx;color: #666">如有白蛋，请勿记录，重启游戏重新扫荡即可（扫荡第三章永远不会出白蛋）</view>
   <view style="font-size:30rpx">
@@ -26,6 +26,14 @@
     </view>
   </view>
   <view class="current-container">
+    <view style="display: flex;justify-content: space-between;align-items:center;font-size: 35rpx">
+      <view style="display: flex;align-items:center;">
+        <view style="margin-left: 40rpx;" bindtap='changeAccount'>当前账号：{{currentAccount.name}}</view>
+        <image style="height: 40rpx;width: 40rpx;margin-left: 15rpx" src='../../images/edit.png' mode="aspectFit" bindtap='editAccount'></image>
+      </view>
+      <!-- <view style="margin-right: 40rpx;" bindtap='addAccount'>添加账号</view> -->
+      <image bindtap='addAccount' style="height: 40rpx;width: 40rpx;margin-right: 40rpx;" src='../../images/add.png' mode="aspectFit"></image>
+    </view>
     <text style="margin-left: 40rpx">添加一个蛋蛋</text>
     <view class="button-container" wx:if="{{currentIndex === -1}}">
       <image src="../../images/green.png" bindtap="addEgg" data-type="1" mode="aspectFit" class="add-egg"></image>
@@ -143,6 +151,21 @@
   <modal hidden="{{hiddenmodalput}}" catchtouchmove='true'  title="手动设置位置" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">  
       <input type='number' bindinput="bindKeyInput" placeholder="请输入位置" maxlength="3" />
       <view>请保证您自己估算位置的准确性，位置范围为1~155（注意：将清空当前历史记录蛋蛋），输入0即为清空位置</view>
+  </modal>
+
+    <modal hidden="{{hiddenModalAdd}}" catchtouchmove='true'  title="添加账户" confirm-text="提交" cancel-text="取消" bindcancel="cancelAdd" bindconfirm="confirmAdd">  
+      <view wx:if="{{accountList.length < 6}}">
+        <input type='text' bindinput="bindAccountInput" placeholder="请输入新账户名称" maxlength="10" />
+        <view>喜欢玩小号的同学可以添加多个账号来分开记录啦，只玩一个号的同学就不要尝试这个啦</view>
+      </view>
+      <text wx:else>同学请保重你的肝，不要肝这么多号啦</text>
+  </modal>
+
+  <modal hidden="{{hiddenModalEdit}}" catchtouchmove='true'  title="编辑账户" confirm-text="提交" cancel-text="取消" bindcancel="cancelEdit" bindconfirm="confirmEdit">  
+      <view>
+        <input type='text' bindinput="bindEditAccountInput" placeholder="请输入账户名称" maxlength="10" value="{{inputEditAccount}}" />
+        <view wx:if="{{currentAccount.id !== 0}}" style="margin-top: 10rpx;text-align: center;color: #F5222D" bindtap='delAccount'>删除账号</view>
+      </view>
   </modal>
 
   <view class="pic-container">

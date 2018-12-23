@@ -48,4 +48,36 @@
   color: #ed4d60;
 }
 
+.search-result-container {
+  margin-top: 47px;
+}
+
+.search-feedback-container {
+  text-align: center;
+  padding: 40rpx;
+  color: #666;
+  font-size: 30rpx;
+  padding-top: 300rpx;
+}
+
+.event-search-bar {
+  position: fixed;
+  top: 0;
+  background-color: red;
+  z-index: 2000;
+  width: 100%;
+}
+
+.searchbar-result{
+    margin-top: 0;
+    font-size: 14px;
+}
+.searchbar-result:before{
+    display: none;
+}
+.weui-cell{
+    padding: 12px 15px 12px 35px;
+}
+
+
 @import 'weui.wxss';

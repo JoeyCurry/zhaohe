@@ -10,7 +10,10 @@
     "pages/tacticBooks/zhuangbei/index",
     "pages/tacticBooks/juanzhou/index",
     "pages/tacticBooks/diandao/index",
-    "pages/tacticBooks/zuanshi/index"
+    "pages/tacticBooks/zuanshi/index",
+    "pages/tacticBooks/jiemitext/index",
+    "pages/tools/index",
+    "pages/findLucky/index"
   ],
   "window": {
     "backgroundColor": "#fff",
@@ -18,6 +21,25 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "爱召合",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#1890FF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "selectedIconPath": "images/egg_checked.png",
+        "iconPath": "images/egg.png",
+        "pagePath": "pages/index/index",
+        "text": "垫刀"
+      },
+      {
+        "selectedIconPath": "images/tools_checked.png",
+        "iconPath": "images/tools.png",
+        "pagePath": "pages/tools/index",
+        "text": "工具"
+      }
+    ]
   },
   "cloud": true
 }
