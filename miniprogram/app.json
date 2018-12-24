@@ -13,7 +13,9 @@
     "pages/tacticBooks/zuanshi/index",
     "pages/tacticBooks/jiemitext/index",
     "pages/tools/index",
-    "pages/findLucky/index"
+    "pages/findLucky/index",
+    "pages/user/index",
+    "pages/my/feedback/index"
   ],
   "window": {
     "backgroundColor": "#fff",
@@ -38,6 +40,12 @@
         "iconPath": "images/tools.png",
         "pagePath": "pages/tools/index",
         "text": "工具"
+      },
+      {
+        "selectedIconPath": "images/me_checked.png",
+        "iconPath": "images/me.png",
+        "pagePath": "pages/user/index",
+        "text": "我的"
       }
     ]
   },

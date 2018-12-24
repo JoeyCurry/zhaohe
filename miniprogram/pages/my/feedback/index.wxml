@@ -1,0 +1,13 @@
+<!--pages/my/feedback/index.wxml-->
+<view class="my-feedback-container">
+  <view class="my-feedback-card">
+    <view class="my-feedback-status">
+      <image style="height: 30rpx;width: 30rpx;margin-right: 5rpx" src='../../../images/waiting.png' mode="aspectFit"></image>
+      <text style="">感谢您的反馈，当前正在处理中，请耐心等待...</text>
+    </view> 
+    <view class="my-feedback-content">反馈内容阿迪风景四季风 i那地方叫爱阿迪激发 i阿迪 v即发生的纠纷 i 啊</view>
+    <view class="my-feedback-result">
+      开发者说：这个功能正在开发中，感谢您的提议，这个功能正在开发中，感谢您的提议，这个功能正在开发中，感谢您的提议，这个功能正在开发中，感谢您的提议
+    </view>
+  </view>
+</view>

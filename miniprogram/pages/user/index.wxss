@@ -1,0 +1,57 @@
+/* pages/user/index.wxss */
+.user-container {
+  background-color: #f6f6f6;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+
+.user-info-container {
+  height: 150rpx;
+  background-color: #fff;
+  width: 100%;
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-name-container {
+  height: 150rpx;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 20rpx;
+}
+
+.user-header {
+  height: 140rpx;
+  width: 140rpx;
+  border-radius: 4px;
+}
+
+.user-name-content {
+  flex: 1;
+  padding-left: 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.user-name {
+  font-size: 35rpx;
+}
+
+.user-time {
+  font-size: 30rpx;
+}
+
+.user-id {
+  font-size: 25rpx;
+  color: #999;
+}
+
+.user-array {
+  display: flex;
+  align-items: center;
+  padding-right: 20rpx;
+}

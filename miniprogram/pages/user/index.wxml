@@ -1,0 +1,38 @@
+<!--pages/user/index.wxml-->
+<view class="user-container">
+  <view class="user-info-container">
+    <view class="user-name-content">
+      <image class="user-header" src="cloud://jiangjun-ee2d30.6a69-jiangjun-ee2d30/avatar/logo.png" mode="aspectFit"></image>
+      <view class="user-name-container">
+        <view class="user-name">名称</view>
+        <view class="user-time">加入时间: 2018-10-10 13:12</view>
+        <view class="user-id">ID：fafagfigjaijirjiojrioeafij</view>
+      </view>
+    </view>
+    <view class="user-array">
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+  </view>
+  <view class="weui-panel">
+      <view class="weui-panel__bd">
+          <view class="weui-media-box weui-media-box_small-appmsg">
+              <view class="weui-cells weui-cells_in-small-appmsg">
+                  <navigator url="../my/feedback/index" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                      <view class="weui-cell__hd"><image src="{{icon20}}" style="width: 20px;height: 20px;margin-right: 5px" /></view>
+                      <view class="weui-cell__bd weui-cell_primary font-size-30">
+                          <view>我的反馈</view>
+                      </view>
+                      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                  </navigator>
+                  <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                      <view class="weui-cell__hd"><image src="{{icon20}}" style="width: 20px;height: 20px;margin-right: 5px" /></view>
+                      <view class="weui-cell__bd weui-cell_primary font-size-30">
+                          <view>我的欧皇</view>
+                      </view>
+                      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                  </navigator>
+              </view>
+          </view>
+      </view>
+  </view>
+</view>

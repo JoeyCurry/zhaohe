@@ -1,12 +1,14 @@
 /* pages/findLucky/index.wxss */
 .lucky-image {
-  width: 100%;
   height: 400rpx;
-  border-radius: 4px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  width: 100%;
 }
 .lucky-image-container {
   border-radius: 4px;
   height: 100%;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
 }
 .lucky-feedback-container {
   display: flex;
@@ -14,6 +16,39 @@
 .lucky-container {
   padding: 0 10px;
 }
-.lucky-feedback-good-bad {
-  display: flex
+.lucky-feedback-name {
+  flex: 1;
+  padding-left: 10rpx;
+}
+.lucky-feedback-icon {
+  display: flex;
+  padding: 0 20rpx;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.lucky-feedback-icon-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lucky-icon-checked {
+  color: #F5222D;
+}
+
+.lucky-icon {
+  color: #e6e6e6;
+}
+
+.lucky-bad-image {
+  width: 40rpx;
+  height:40rpx;
+  margin-top: 10rpx
+}
+
+.lucky-good-image {
+  width: 40rpx;
+  height:40rpx;
+  margin-bottom:12rpx;
 }

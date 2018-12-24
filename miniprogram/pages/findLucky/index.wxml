@@ -1,12 +1,28 @@
 <!--pages/findLucky/index.wxml-->
 <view class="lucky-container">
+  <view style="display:flex;align-items: center;">
+    <view style='font-size: 25rpx;color: #999'>选出最佳欧皇占据封面</view>
+  </view>
   <view class="lucky-image-container">
     <image class="lucky-image" mode="aspectFill" src="cloud://jiangjun-ee2d30.6a69-jiangjun-ee2d30/lucky/luckpic.jpg"></image>
     <view class="lucky-feedback-container">
-      <view>
+      <view class="lucky-feedback-name">
+        <view style='font-size: 25rpx;color: #666'>
+          很长的名字很长的名字 2018-12-19 15:19
+        </view>
+        <view style='font-size: 20rpx;color: #999'>
+          很长的id
+        </view>
       </view>
-      <view class="lucky-feedback-good-bad">
-        
+      <view class="lucky-feedback-icon">
+        <view class="lucky-feedback-icon-content">
+          <text style='font-size: 25rpx;' class="lucky-icon">0</text>
+          <image src="../../images/bad.png" class="lucky-bad-image" mode="aspectFit"></image>
+        </view>
+        <view class="lucky-feedback-icon-content">
+          <text style='font-size: 25rpx;' class="lucky-icon">0</text>
+          <image src="../../images/good.png" class="lucky-good-image" mode="aspectFit"></image>
+        </view>
       </view>
     </view>
   </view>

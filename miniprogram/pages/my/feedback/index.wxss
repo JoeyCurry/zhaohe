@@ -1,0 +1,39 @@
+/* pages/my/feedback/index.wxss */
+.my-feedback-container {
+  padding: 10px;
+}
+
+.my-feedback-card {
+  border-radius: 4px;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+  min-height: 300rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.my-feedback-status {
+  height: 80rpx;
+  border-bottom: 1px solid #e9e9e9;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  padding-left: 20rpx
+}
+
+.my-feedback-content {
+  font-size: 32rpx;
+  padding: 20rpx;
+}
+
+.my-feedback-result {
+  min-height: 80rpx;
+  border-top: 1px solid #e9e9e9;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  padding: 10rpx 20rpx;
+  flex-wrap: wrap;
+  color: #999;
+}
