@@ -18,11 +18,11 @@
   <view style="font-size:30rpx">
     <view>
       <text>今日活动：</text>
-      <text>{{activity[todayActivity]}}</text>
+      <text>{{todayActivity}}</text>
     </view>
     <view>
       <text>明日活动：</text>
-      <text>{{activity[nextActivity]}}</text>
+      <text>{{nextActivity}}</text>
     </view>
   </view>
   <view class="current-container">
