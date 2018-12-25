@@ -15,7 +15,9 @@
     "pages/tools/index",
     "pages/findLucky/index",
     "pages/user/index",
-    "pages/my/feedback/index"
+    "pages/my/feedback/index",
+    "pages/my/lucky/index",
+    "pages/my/myCheckImg/index"
   ],
   "window": {
     "backgroundColor": "#fff",

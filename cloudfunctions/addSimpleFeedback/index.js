@@ -12,7 +12,7 @@ exports.main = async (event, context) => {
       name: event.name,
       title: event.title,
       eventId: event.id,
-      date: new Date().getTime()
+      date: new Date().getTime() + 28800 * 1000
     }
   })
 }

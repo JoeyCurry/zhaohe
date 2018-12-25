@@ -77,6 +77,7 @@ Page({
       data: {}
     }).then((res) => {
       app.globalData.name = res.result.name
+      app.globalData.userId = res.result._id
     }).catch((err) => {
       app.globalData.name = ''
       console.error('getName', err)
@@ -302,7 +303,50 @@ Page({
   // 确认修改账号
   confirmEdit() {
     if (this.data.inputEditAccount) {
-
+      wx.showLoading({
+        title: '',
+      })
+      let accountList = [...this.data.accountList]
+      accountList.shift()
+      let currentAccount = this.data.currentAccount
+      accountList.find((item, index)=>{
+        if (item.id === currentAccount.id) {
+          item.name = this.data.inputEditAccount
+          currentAccount.name = this.data.inputEditAccount
+          return true
+        } else {
+          return false
+        }
+      })
+      const db = wx.cloud.database()
+      db.collection('user_eggs').doc(this.data.DB_id).update({
+        data: {
+          accountList,
+        },
+        success: res => {
+          try {
+            accountList.unshift(this.data.defaultAccount)
+            console.log(accountList)
+            wx.hideLoading()
+            wx.showToast({
+              title: '修改成功',
+              icon: 'success'
+            })
+            this.setData({
+              hiddenModalEdit: true,
+              accountList,
+              currentAccount,
+            })
+          } catch (err) {
+            console.error(err)
+          }
+        },
+        fail: err => {
+          wx.showToast({
+            title: '更新数据库失败，请咨询我',
+          })
+        }
+      })
     } else {
       this.setData({
         hiddenModalEdit: true
@@ -455,6 +499,10 @@ Page({
       total
     })
     this.onDBUpdate({ historyArr })
+    wx.showToast({
+      title: '添加成功',
+      duration: 1000
+    })
   },
 
   delEgg() {

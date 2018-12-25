@@ -1,29 +1,45 @@
 <!--pages/findLucky/index.wxml-->
 <view class="lucky-container">
-  <view style="display:flex;align-items: center;">
+  <view class="lucky-top-container">
     <view style='font-size: 25rpx;color: #999'>选出最佳欧皇占据封面</view>
   </view>
-  <view class="lucky-image-container">
-    <image class="lucky-image" mode="aspectFill" src="cloud://jiangjun-ee2d30.6a69-jiangjun-ee2d30/lucky/luckpic.jpg"></image>
-    <view class="lucky-feedback-container">
-      <view class="lucky-feedback-name">
-        <view style='font-size: 25rpx;color: #666'>
-          很长的名字很长的名字 2018-12-19 15:19
+  <view 
+    class="lucky-image-list-container" 
+    wx:if="{{luckyList.length}}">
+    <view class="lucky-image-container" wx:for="{{luckyList}}" wx:key="{{index}}">
+      <image class="lucky-image" mode="aspectFill" src="{{item.image}}"></image>
+      <view class="lucky-feedback-container">
+        <view class="lucky-feedback-name">
+          <view style='font-size: 25rpx;color: #666'>
+            {{item.name + ' ' + item.time}}
+          </view>
+          <view style='font-size: 20rpx;color: #999'>
+            {{item.userId}}
+          </view>
         </view>
-        <view style='font-size: 20rpx;color: #999'>
-          很长的id
-        </view>
-      </view>
-      <view class="lucky-feedback-icon">
-        <view class="lucky-feedback-icon-content">
-          <text style='font-size: 25rpx;' class="lucky-icon">0</text>
-          <image src="../../images/bad.png" class="lucky-bad-image" mode="aspectFit"></image>
-        </view>
-        <view class="lucky-feedback-icon-content">
-          <text style='font-size: 25rpx;' class="lucky-icon">0</text>
-          <image src="../../images/good.png" class="lucky-good-image" mode="aspectFit"></image>
+        <view class="lucky-feedback-icon">
+          <!-- <view class="lucky-feedback-icon-content" bindtap='unlike' data-id="{{item._id}}">
+            <text style='font-size: 25rpx;' class="lucky-icon">{{item.unlike}}</text>
+            <image src="../../images/bad.png" class="lucky-bad-image" mode="aspectFit"></image>
+          </view> -->
+          <view class="lucky-feedback-icon-content" bindtap='like' data-id="{{item._id}}">
+            <text style='font-size: 25rpx;' class="{{ item.isMyLike ?  'lucky-icon-checked' : 'lucky-icon' }}">{{item.like}}</text>
+            <image src="{{ item.isMyLike ? likeImgChecked : likeImg}}" class="lucky-good-image" mode="aspectFit"></image>
+          </view>
         </view>
       </view>
     </view>
   </view>
+  <view class="lucky-image-list-container" style="text-align: center; margin-top: 150rpx" wx:else>暂无数据</view>
+  <view class="lucky-bottom">
+    <view class="lucky-buttom-button">
+      <button class="weui-btn" type="primary" bindtap='upload'>上传我的欧皇</button>
+    </view>
+  </view>
+  <modal catchtouchmove='true' hidden="{{hiddenmodalput}}" title="设置名称" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">  
+      <view class="modal-container">
+        <input type='text' class="feedback-input" bindinput="bindNameInput" value="{{name}}" placeholder="怎么称呼你呢" maxlength="20" />
+        <view style='color: #F5222D; font-size: 30rpx'></view>
+      </view>
+  </modal>
 </view>

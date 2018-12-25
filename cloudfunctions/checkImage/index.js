@@ -5,12 +5,12 @@ cloud.init()
 const db = cloud.database()
 // 云函数入口函数
 exports.main = async (event, context) => {
-  return await db.collection('feedback').add({
+  const wxContext = cloud.getWXContext()
+  return await db.collection('luckyImage').where({
+    _id: event.id
+  }).update({
     data: {
-      openId: event.userInfo.openId,
-      feedback: event.feedback,
-      name: event.name,
-      date: new Date().getTime() + 28800 * 1000
+      canPublic: true
     }
   })
 }

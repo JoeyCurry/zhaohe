@@ -14,7 +14,7 @@ exports.main = async (event, context) => {
     }).update({
       data: {
         name: event.name,
-        date: new Date().getTime()
+        date: new Date().getTime() + 28800 * 1000
       }
     })
   } else {
@@ -22,7 +22,7 @@ exports.main = async (event, context) => {
       data: {
         openId: event.userInfo.openId,
         name: event.name,
-        date: new Date().getTime()
+        date: new Date().getTime() + 28800 * 1000
       }
     })
   }

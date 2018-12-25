@@ -12,6 +12,8 @@ App({
 
   globalData: {
     openid: '',
-    name: ''
+    name: '',
+    userId: '',
+    isjiangjun:false
   }
 })

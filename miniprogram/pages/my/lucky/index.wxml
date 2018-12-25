@@ -1,0 +1,33 @@
+<!--pages/my/feedback/index.wxml-->
+<view class="my-feedback-container">
+  <view class="lucky-top-container">
+    <view style='font-size: 25rpx;color: #999'>现仅支持我上传的，我点赞的暂未支持</view>
+  </view>
+  <view class="lucky-image-list-container" wx:if="{{myList.length}}">
+    <view class="lucky-image-container" wx:for="{{myList}}" wx:key="{{index}}">
+    <image class="lucky-image" mode="aspectFill" src="{{item.image}}"></image>
+      <view class="lucky-feedback-container">
+        <view class="lucky-feedback-name">
+          <view style='font-size: 25rpx;color: #666'>
+            {{item.time}}
+          </view>
+          <view class="my-feedback-status" style='font-size: 20rpx;color: #999'>
+            <image style="height: 30rpx;width: 30rpx;margin-right: 5rpx" src="{{item.canPublic ? isFeededImg : waitingImg}}" mode="aspectFit"></image>
+            <text>{{ item.canPublic ? '已审核' : '审核中，请耐心等待...'}}</text>
+          </view>
+        </view>
+        <view class="lucky-feedback-icon">
+          <view class="lucky-feedback-icon-content" bindtap='like' data-id="{{item._id}}">
+            <text style='font-size: 25rpx;' class="{{'lucky-icon'}}">{{item.like}}</text>
+            <image src="{{likeImg}}" class="lucky-good-image" mode="aspectFit"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:else style="text-align: center; margin-top: 150rpx">
+    <text >
+      暂无记录
+    </text>
+  </view>
+</view>

@@ -1,1 +1,6 @@
-{}
+{
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "寻找欧皇",
+  "backgroundTextStyle": "dark",
+  "onReachBottomDistance": 0
+}

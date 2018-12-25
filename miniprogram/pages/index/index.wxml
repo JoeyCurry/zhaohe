@@ -29,7 +29,7 @@
     <view style="display: flex;justify-content: space-between;align-items:center;font-size: 35rpx">
       <view style="display: flex;align-items:center;">
         <view style="margin-left: 40rpx;" bindtap='changeAccount'>当前账号：{{currentAccount.name}}</view>
-        <image style="height: 40rpx;width: 40rpx;margin-left: 15rpx" src='../../images/edit.png' mode="aspectFit" bindtap='editAccount'></image>
+        <image wx:if="{{currentAccount.id !== 0}}" style="height: 40rpx;width: 40rpx;margin-left: 15rpx" src='../../images/edit.png' mode="aspectFit" bindtap='editAccount'></image>
       </view>
       <!-- <view style="margin-right: 40rpx;" bindtap='addAccount'>添加账号</view> -->
       <image bindtap='addAccount' style="height: 40rpx;width: 40rpx;margin-right: 40rpx;" src='../../images/add.png' mode="aspectFit"></image>
@@ -172,7 +172,7 @@
     <image style="width: 700rpx;" src='../../images/pic.png' mode='widthFix'></image>
   </view>
 
-  <button v-if="showFeedbackCheck" bindtap='feedbackCheck'>FeedbackCheck</button>
+  <button v-if="{{showFeedbackCheck}}" bindtap='feedbackCheck'>FeedbackCheck</button>
 
 </view>
 <view class="container" wx:else>

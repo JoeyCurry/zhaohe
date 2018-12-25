@@ -1,66 +1,148 @@
 // pages/user/index.js
+
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    userName: '您还未设置名称',
+    userId: '您暂无id',
+    entryTime: '您暂无加入时间',
+    name: '',
+    hiddenmodalput: true,
+    isAdmin: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getName()
+    this.setData({
+      isAdmin: app.globalData.openid === 'oPGrr4tHoWot5sAZ_c36gP7dRpZY'
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  showNameModal() {
+    this.setData({
+      hiddenmodalput: false
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  // 输入姓名
+  bindNameInput(e) {
+    this.setData({
+      name: e.detail.value.trim()
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  cancel() {
+    this.setData({
+      hiddenmodalput: true
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  // 提交反馈
+  confirm() {
+    this.setName()
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  getName() {
+    wx.cloud.callFunction({
+      name: 'getName',
+      data: {}
+    }).then((res) => {
+      console.log(res)
+      app.globalData.name = res.result.name
+      this.setData({
+        userName: res.result.name,
+        name: res.result.name,
+        userId: res.result._id,
+        entryTime: this.timestampToTime(res.result.date)
+      })
+    }).catch((err) => {
+      app.globalData.name = ''
+      console.error('getName', err)
+    })
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+  setName() {
+    wx.showLoading({
+      title: '',
+    })
+    wx.cloud.callFunction({
+      name: 'setName',
+      data: {
+        name: this.data.name
+      }
+    }).then((res) => {
+      let appInstance = getApp()
+      appInstance.globalData.name = this.data.name
+      wx.hideLoading()
+      wx.showToast({
+        title: '设置成功',
+        duration: 1500
+      })
+      this.getName()
+      this.setData({
+        hiddenmodalput: true,
+      })
+    }).catch((err) => {
+      console.error('setName', err)
+    })
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+  goMyFeedback() {
+    if (app.globalData.name) {
+      wx.navigateTo({
+        url: '../my/feedback/index',
+        success: function(res) {},
+        fail: function(res) {},
+        complete: function(res) {},
+      })
+    } else {
+      wx.showToast({
+        title: '请先设置名称',
+        icon: 'none',
+        duration: 800
+      })
+      this.setData({
+        hiddenmodalput: false
+      })
+    }
+  },
 
+  goMyLucky() {
+    if (app.globalData.name) {
+      wx.navigateTo({
+        url: '../my/lucky/index',
+        success: function(res) {},
+        fail: function(res) {},
+        complete: function(res) {},
+      })
+    } else {
+      wx.showToast({
+        title: '请先设置名称',
+        icon: 'none',
+        duration: 800
+      })
+      this.setData({
+        hiddenmodalput: false
+      })
+    }
+  },
+
+  timestampToTime(timestamp) {
+    let date = new Date(timestamp);
+    let Y = date.getFullYear() + '-';
+    let M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+    let D = date.getDate() + ' ';
+    let h = date.getHours() + ':';
+    let m = date.getMinutes();
+    let s = date.getSeconds();
+    return Y + M + D + h + m;
   }
+
 })
