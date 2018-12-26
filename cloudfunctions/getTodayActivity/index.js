@@ -17,7 +17,7 @@ const activity = {
 const beginDate = 1545494400000
 // 云函数入口函数
 exports.main = async (event, context) => {
-  let date = new Date().getTime()
+  let date = new Date().getTime() + 28800 * 1000
   const ONEDAY = 24 * 60 * 60 * 1000 // 每一天的毫秒数
   // 距离制定开始时间有多少天
   let minusDays = Math.floor((date - beginDate) / ONEDAY)

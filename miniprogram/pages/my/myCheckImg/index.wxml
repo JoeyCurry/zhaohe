@@ -1,7 +1,7 @@
 <!--pages/my/feedback/index.wxml-->
 <view class="my-feedback-container">
   <view class="lucky-top-container">
-    <view style='font-size: 25rpx;color: #999'>现仅支持我上传的，我点赞的暂未支持</view>
+    <view style='font-size: 25rpx;color: #999'>用于审批</view>
   </view>
   <view class="lucky-image-list-container" wx:if="{{myList.length}}">
     <view class="lucky-image-container" wx:for="{{myList}}" wx:key="{{index}}">

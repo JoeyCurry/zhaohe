@@ -19,7 +19,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getName()
+    if (!app.globalData.name) {
+      this.getName()
+    } else {
+      this.setData({
+        userName: app.globalData.name,
+        name: app.globalData.name,
+        userId: app.globalData.userId,
+        entryTime: this.timestampToTime(app.globalData.entryDate) 
+      })
+    }
     this.setData({
       isAdmin: app.globalData.openid === 'oPGrr4tHoWot5sAZ_c36gP7dRpZY'
     })

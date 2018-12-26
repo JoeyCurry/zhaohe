@@ -78,6 +78,7 @@ Page({
     }).then((res) => {
       app.globalData.name = res.result.name
       app.globalData.userId = res.result._id
+      app.globalData.entryDate = res.result.date
     }).catch((err) => {
       app.globalData.name = ''
       console.error('getName', err)

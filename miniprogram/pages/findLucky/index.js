@@ -164,11 +164,10 @@ Page({
           let userLikeList = res.result.like || []
           let userUnLikeList = res.result.unlike || []
           luckyList.forEach((item, index) => {
-            userLikeList.forEach((likeItem, likeIndex) => {
+            userLikeList.find((likeItem, likeIndex) => {
               if (likeItem === item._id) {
                 item.isMyLike = true
-              } else {
-                item.isMyLike = false
+                return true
               }
             })
             userUnLikeList.forEach((unlikeItem, unlikeIndex) => {

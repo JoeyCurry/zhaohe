@@ -14,6 +14,7 @@ App({
     openid: '',
     name: '',
     userId: '',
-    isjiangjun:false
+    isjiangjun:false,
+    entryDate: ''
   }
 })
