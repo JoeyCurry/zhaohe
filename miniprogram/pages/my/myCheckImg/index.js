@@ -50,7 +50,6 @@ Page({
         id: e.currentTarget.dataset.id
       }
     }).then(res=> {
-      console.log(res)
       this.fetchList()
     }).catch( e => {
       console.error(e)
@@ -64,10 +63,10 @@ Page({
     wx.cloud.callFunction({
       name: 'deleteImage',
       data: {
-        id: e.currentTarget.dataset.id
+        id: e.currentTarget.dataset.id,
+        fileId: e.currentTarget.dataset.image
       }
     }).then(res => {
-      console.log(res)
       this.fetchList()
     }).catch(e => {
       console.error(e)

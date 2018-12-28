@@ -451,7 +451,7 @@ Page({
       success: res => {
         console.log('[云函数] [login] user openid: ', res.result.openid)
         app.globalData.openid = res.result.openid
-        if (res.result.openid === 'oPGrr4tHoWot5sAZ_c36gP7dRpZY') {
+        if (res.result.openid == 'oPGrr4tHoWot5sAZ_c36gP7dRpZY') {
           this.setData({
             showFeedbackCheck: true
           })
@@ -469,14 +469,14 @@ Page({
   },
 
   // 更新反馈数据
-  feedbackCheck() {
-    wx.cloud.callFunction({
-      name: 'updateFeedback',
-      data: {},
-      success: res => {console.log(res)},
-      fail: err => {console.error(err)}
-    })
-  },
+  // feedbackCheck() {
+  //   wx.cloud.callFunction({
+  //     name: 'updateFeedback',
+  //     data: {},
+  //     success: res => {console.log(res)},
+  //     fail: err => {console.error(err)}
+  //   })
+  // },
 
   addEgg: function(e) {
     let type = e.currentTarget.dataset.type

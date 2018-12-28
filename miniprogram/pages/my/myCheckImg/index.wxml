@@ -13,7 +13,12 @@
           </view>
           <view class="my-feedback-status">
             <button type="primary" size="mini" bindtap='pass' data-id="{{item._id}}" >通过</button>
-            <button type="warn" size="mini" bindtap='deleteImg' data-id="{{item._id}}">删除</button>
+            <button 
+              type="warn" 
+              size="mini" 
+              bindtap='deleteImg' 
+              data-id="{{item._id}}" 
+              data-image="{{item.image}}">删除</button>
           </view>
         </view>
       </view>

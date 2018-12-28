@@ -9,10 +9,10 @@ const activity = {
   1: '宝蛋金币数翻倍',
   2: '异次元裂缝卷轴双倍',
   3: '勇者悬赏金币双倍',
-  4: '无尽的远征卷轴双倍',
-  5: '关卡金币收益翻倍',
-  6: '夺矿金币双倍',
-  7: '魔王金币双倍',
+  // 4: '无尽的远征卷轴双倍',
+  4: '关卡金币收益翻倍',
+  5: '夺矿金币双倍',
+  6: '魔王金币双倍',
 }
 const beginDate = 1545494400000
 // 云函数入口函数
@@ -22,7 +22,7 @@ exports.main = async (event, context) => {
   // 距离制定开始时间有多少天
   let minusDays = Math.floor((date - beginDate) / ONEDAY)
   return {
-    todayActivity: activity[(minusDays % 8)],
-    nextActivity: activity[((minusDays + 1) % 8)]
+    todayActivity: activity[(minusDays % 7)],
+    nextActivity: activity[((minusDays + 1) % 7)]
   }
 }

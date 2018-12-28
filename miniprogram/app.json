@@ -17,7 +17,8 @@
     "pages/user/index",
     "pages/my/feedback/index",
     "pages/my/lucky/index",
-    "pages/my/myCheckImg/index"
+    "pages/my/myCheckImg/index",
+    "pages/my/myCheckFeedback/index"
   ],
   "window": {
     "backgroundColor": "#fff",

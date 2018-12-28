@@ -1,0 +1,36 @@
+<!--pages/my/feedback/index.wxml-->
+<view class="my-feedback-container">
+  <view class="lucky-image-list-container" wx:if="{{feedbackList.length}}">
+    <view class="my-feedback-card" wx:for="{{feedbackList}}" wx:key="{{index}}">
+      <view class="my-feedback-status">
+        <image style="height: 30rpx;width: 30rpx;margin-right: 5rpx" src="{{item.isRead ? isFeededImg : waitingImg}}" mode="aspectFit"></image>
+        <text>反馈人：{{item.name}} {{item.time}}</text>
+      </view> 
+      <view class="my-feedback-title">
+        <view>title:{{item.title }}</view>
+      </view>
+      <view class="my-feedback-content">
+        <view>{{item.feedback}}</view>
+      </view>
+      <view class="my-feedback-status" style="padding: 10rpx 0 20rpx 0">
+        <button type="primary" size="mini" bindtap='pass' data-id="{{item._id}}" >已处理</button>
+        <button type="default" size="mini" bindtap='saySomething' data-id="{{item._id}}" >添加反馈内容</button>
+      </view>
+    </view>
+  </view>
+  <view wx:else style="text-align: center; margin-top: 150rpx">
+    <text >
+      您暂无反馈记录
+    </text>
+  </view>
+  <view class="lucky-bottom">
+    <view class="lucky-buttom-button">
+      <button class="weui-btn" type="primary" bindtap='clearFeedback'>已读所有反馈</button>
+    </view>
+  </view>
+  <modal catchtouchmove='true' hidden="{{hiddenmodalput}}" title="说点什么" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">  
+    <view class="modal-container">
+      <textarea class="weui-textarea" class="feedback-textarea" bindinput='bindFeedback' maxlength='300' placeholder='输入反馈内容' style="height: 200rpx" />
+    </view>
+  </modal>
+</view>

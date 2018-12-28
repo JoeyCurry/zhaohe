@@ -211,7 +211,7 @@ Page({
 
   // 上传图片
   upload() { 
-    if (app.globalData.name) {
+    if (app.globalData.name && app.globalData.userId) {
       wx.chooseImage({
         count: 1,
         success: chooseResult => {
@@ -289,7 +289,9 @@ Page({
         name: this.data.name
       }
     }).then((res) => {
+      console.log(res)
       app.globalData.name = this.data.name
+      app.globalData.userId = res.result._id
       wx.hideLoading()
       wx.showToast({
         title: '设置成功',

@@ -25,7 +25,7 @@ Page({
       this.setData({
         userName: app.globalData.name,
         name: app.globalData.name,
-        userId: app.globalData.userId,
+        userId: app.globalData.userId || '',
         entryTime: this.timestampToTime(app.globalData.entryDate) 
       })
     }
@@ -65,10 +65,11 @@ Page({
     }).then((res) => {
       console.log(res)
       app.globalData.name = res.result.name
+      app.globalData.openid = res.result.openid
       this.setData({
-        userName: res.result.name,
-        name: res.result.name,
-        userId: res.result._id,
+        userName: res.result.name || '您还未设置名称',
+        name: res.result.name || '您还未设置名称',
+        userId: res.result._id || '',
         entryTime: this.timestampToTime(res.result.date)
       })
     }).catch((err) => {
@@ -144,14 +145,18 @@ Page({
   },
 
   timestampToTime(timestamp) {
-    let date = new Date(timestamp);
-    let Y = date.getFullYear() + '-';
-    let M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
-    let D = date.getDate() + ' ';
-    let h = date.getHours() + ':';
-    let m = date.getMinutes();
-    let s = date.getSeconds();
-    return Y + M + D + h + m;
+    if (timestamp) {
+      let date = new Date(timestamp);
+      let Y = date.getFullYear() + '-';
+      let M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+      let D = date.getDate() + ' ';
+      let h = date.getHours() + ':';
+      let m = date.getMinutes();
+      let s = date.getSeconds();
+      return Y + M + D + h + m;
+    } else {
+      return '您暂无加入时间'
+    }
   }
 
 })
