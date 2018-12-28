@@ -20,7 +20,7 @@
   </view>
   <view wx:else style="text-align: center; margin-top: 150rpx">
     <text >
-      您暂无反馈记录
+      您暂无需要处理的反馈记录
     </text>
   </view>
   <view class="lucky-bottom">

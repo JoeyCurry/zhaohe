@@ -57,12 +57,18 @@ Page({
   },
 
 
-  // 打开反馈
+  // 清空反馈
   clearFeedback() {
+    wx.showLoading({
+      title: '',
+    })
     wx.cloud.callFunction({
       name: 'updateFeedback',
       data: {},
-      success: res => { console.log(res) },
+      success: res => { 
+        console.log(res) 
+        this.fetchList()
+      },
       fail: err => { console.error(err) }
     })
   },
