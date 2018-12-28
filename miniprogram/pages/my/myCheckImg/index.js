@@ -56,6 +56,13 @@ Page({
     })
   },
 
+  showPic(e) {
+    wx.previewImage({
+      current: e.currentTarget.dataset.file,
+      urls: [e.currentTarget.dataset.file]
+    })
+  },
+
   deleteImg(e) {
     wx.showLoading({
       title: '',

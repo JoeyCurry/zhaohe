@@ -10,8 +10,8 @@ exports.main = async (event, context) => {
     return await db.collection('luckyImage').add({
       data: {
         openId: wxContext.OPENID,
-        date: new Date().getTime() + 28800 * 1000,
-        time: timestampToTime(new Date().getTime() + 28800 * 1000),
+        date: new Date().getTime(),
+        time: timestampToTime(new Date().getTime()),
         image: event.image,
         like: 0,
         unlike: 0,

@@ -10,9 +10,9 @@ exports.main = async (event, context) => {
       openId: event.userInfo.openId,
       feedback: event.feedback,
       name: event.name,
-      date: new Date().getTime() + 28800 * 1000,
+      date: new Date().getTime(),
       isRead: false,
-      time: timestampToTime(new Date().getTime() + 28800 * 1000)
+      time: timestampToTime(new Date().getTime())
     }
   })
 }
