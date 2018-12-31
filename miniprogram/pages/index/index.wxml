@@ -169,7 +169,7 @@
   </modal>
 
   <view class="pic-container">
-    <image style="width: 700rpx;" src='cloud://jiangjun-ee2d30.6a69-jiangjun-ee2d30/pic.png' mode='widthFix'></image>
+    <image style="width: 700rpx;" src='../../images/pic.png' mode='widthFix'></image>
   </view>
 
 </view>
