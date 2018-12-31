@@ -5,11 +5,11 @@
   </view>
   <view class="lucky-image-list-container" wx:if="{{myList.length}}">
     <view class="lucky-image-container" wx:for="{{myList}}" wx:key="{{index}}">
-    <image class="lucky-image" mode="aspectFill" src="{{item.image}}"></image>
+    <image bindtap='showPic' data-file="{{item.image}}" class="lucky-image" mode="aspectFill" src="{{item.image}}"></image>
       <view class="lucky-feedback-container">
         <view class="lucky-feedback-name">
           <view style='font-size: 25rpx;color: #666'>
-            {{item.time}}
+            {{item.name}} {{item.time}}
           </view>
           <view class="my-feedback-status">
             <button type="primary" size="mini" bindtap='pass' data-id="{{item._id}}" >通过</button>

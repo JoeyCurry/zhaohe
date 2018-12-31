@@ -25,11 +25,15 @@ function timestampToTime(timestamp) {
     let Y = date.getFullYear() + '-';
     let M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
     let D = date.getDate() + ' ';
-    let h = date.getHours() + ':';
-    let m = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
-    let s = date.getSeconds();
-    return Y + M + D + h + m + ':' + s;
+    let h = addZero(date.getHours());
+    let m = addZero(date.getMinutes());
+    let s = addZero(date.getSeconds());
+    return Y + M + D + h + ':' + m + ':' + s;
   } else {
     return ''
   }
+}
+
+function addZero(val) {
+  return val < 10 ? '0' + val : val
 }
