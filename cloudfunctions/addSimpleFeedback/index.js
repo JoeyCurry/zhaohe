@@ -5,6 +5,8 @@ cloud.init()
 const db = cloud.database()
 // 云函数入口函数
 exports.main = async (event, context) => {
+  let date = new Date().getTime()
+  console.log('date', date)
   return await db.collection('feedback').add({
     data: {
       openId: event.userInfo.openId,
@@ -12,8 +14,8 @@ exports.main = async (event, context) => {
       name: event.name,
       title: event.title,
       eventId: event.id,
-      date: new Date().getTime() + 28800 * 1000,
-      time: timestampToTime(new Date().getTime() + 28800 * 1000),
+      date: date,
+      time: timestampToTime(date),
       isRead: false
     }
   })

@@ -14,10 +14,10 @@ const activity = {
   5: '夺矿金币双倍',
   6: '魔王金币双倍',
 }
-const beginDate = 1546185600000
+const beginDate = 1546099200000
 // 云函数入口函数
 exports.main = async (event, context) => {
-  let date = new Date().getTime() + 28800 * 1000
+  let date = new Date().getTime()
   console.log('date', date)
   const ONEDAY = 24 * 60 * 60 * 1000 // 每一天的毫秒数
   // 距离制定开始时间有多少天

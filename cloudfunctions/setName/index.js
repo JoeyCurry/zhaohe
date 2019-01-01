@@ -17,11 +17,13 @@ exports.main = async (event, context) => {
       }
     })
   } else {
+    let date = new Date().getTime()
+    console.log('date', date)
     return await db.collection('user').add({
       data: {
         openId: event.userInfo.openId,
         name: event.name,
-        date: new Date().getTime() + 28800 * 1000
+        date: date
       }
     })
   }

@@ -7,11 +7,13 @@ const db = cloud.database()
 exports.main = async (event, context) => {
   try {
     const wxContext = cloud.getWXContext()
+    let date = new Date().getTime()
+    console.log('date', date)
     return await db.collection('luckyImage').add({
       data: {
         openId: wxContext.OPENID,
-        date: new Date().getTime() + 28800 * 1000,
-        time: timestampToTime(new Date().getTime() + 28800 * 1000),
+        date: date,
+        time: timestampToTime(date),
         image: event.image,
         like: 0,
         unlike: 0,
