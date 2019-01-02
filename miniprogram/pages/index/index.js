@@ -67,11 +67,14 @@ Page({
       id: 0
     },
     hiddenModalAdd: true,
-    hiddenModalEdit: true
+    hiddenModalEdit: true,
+    talk: '',
+    talkFrom: ''
   },
 
   onLoad: function() {
     this.activeFn()
+    this.getTalk()
     wx.cloud.callFunction({
       name: 'getName',
       data: {}
@@ -85,6 +88,21 @@ Page({
     })
     // this.queryDB()
     this.onGetOpenid()
+  },
+
+  getTalk() {
+    wx.cloud.callFunction({
+      name: 'getTalk',
+      data: {}
+    }).then( res => {
+      console.log(res)
+      this.setData({
+        talk: res.result.data.msg || '祝大家欧气满满！',
+        talkFrom: res.result.data.from || '开发者'
+      })
+    }).catch((err) => {
+      console.error(err)
+    })
   },
 
   // queryDB() {

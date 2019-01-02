@@ -58,69 +58,80 @@ Page({
 
   // 点赞
   like(e) {
-    wx.showLoading({
-      title: '',
-    })
-    if (this.data.userLikeList.includes(e.currentTarget.dataset.id) ) {
-      let list = new Set([...this.data.userLikeList])
-      list.delete(e.currentTarget.dataset.id)
-      wx.cloud.callFunction({
-        name: 'cancelLike',
-        data: {
-          id: e.currentTarget.dataset.id,
-          like: [...list]
-        }
-      }).then(res => {
-        console.log(res)
-        let luckyList = this.data.luckyList
-        luckyList.find((item, index) => {
-          if (item._id === e.currentTarget.dataset.id) {
-            item.isMyLike = false
-            item.like = item.like - 1
-            return true
-          } else {
-            return false
-          }
-        })
-        this.setData({
-          luckyList,
-          userLikeList: [...list]
-        })
-        wx.showToast({
-          title: '取消成功',
-        })
-      }).catch(e => {
-        console.error(e)
+    if (app.globalData.name && app.globalData.userId) {
+      wx.showLoading({
+        title: '',
       })
-    } else {
-      let list = [...this.data.userLikeList]
-      list.push(e.currentTarget.dataset.id)
-      wx.cloud.callFunction({
-        name: 'like',
-        data: {
-          id: e.currentTarget.dataset.id 
-        }
-      }).then(res => {
-        console.log(res)
-        let luckyList = this.data.luckyList
-        luckyList.find((item, index) => {
-          if (item._id === e.currentTarget.dataset.id ) {
-            item.isMyLike = true
-            item.like = item.like + 1
-            return true
-          } else {
-            return false
+      if (this.data.userLikeList.includes(e.currentTarget.dataset.id) ) {
+        let list = new Set([...this.data.userLikeList])
+        list.delete(e.currentTarget.dataset.id)
+        wx.cloud.callFunction({
+          name: 'cancelLike',
+          data: {
+            id: e.currentTarget.dataset.id,
+            like: [...list]
           }
+        }).then(res => {
+          console.log(res)
+          let luckyList = this.data.luckyList
+          luckyList.find((item, index) => {
+            if (item._id === e.currentTarget.dataset.id) {
+              item.isMyLike = false
+              item.like = item.like - 1
+              return true
+            } else {
+              return false
+            }
+          })
+          this.setData({
+            luckyList,
+            userLikeList: [...list]
+          })
+          wx.showToast({
+            title: '取消成功',
+          })
+        }).catch(e => {
+          console.error(e)
         })
-        this.setData({
-          luckyList,
-          userLikeList: list
+      } else {
+        let list = [...this.data.userLikeList]
+        list.push(e.currentTarget.dataset.id)
+        wx.cloud.callFunction({
+          name: 'like',
+          data: {
+            id: e.currentTarget.dataset.id 
+          }
+        }).then(res => {
+          console.log(res)
+          let luckyList = this.data.luckyList
+          luckyList.find((item, index) => {
+            if (item._id === e.currentTarget.dataset.id ) {
+              item.isMyLike = true
+              item.like = item.like + 1
+              return true
+            } else {
+              return false
+            }
+          })
+          this.setData({
+            luckyList,
+            userLikeList: list
+          })
+          wx.showToast({
+            title: '点赞成功',
+          })
+        }).catch( e => {
+          console.error(e)
         })
-        wx.showToast({
-          title: '点赞成功',
-        })
-      }).catch( e => {
-        console.error(e)
+      }
+    } else {
+      wx.showToast({
+        title: '请先设置名称',
+        icon: 'none',
+        duration: 800
+      })
+      this.setData({
+        hiddenmodalput: false
       })
     }
   },
