@@ -105,6 +105,12 @@ Page({
     })
   },
 
+  picClick() {
+    wx.previewImage({
+      urls: ['cloud://jiangjun-ee2d30.6a69-jiangjun-ee2d30/pic.png'],
+    })
+  },
+
   // queryDB() {
   //   wx.cloud.callFunction({
   //     name: 'queryEgg',

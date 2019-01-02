@@ -169,7 +169,7 @@
   </modal>
 
   <view class="pic-container">
-    <image style="width: 700rpx;" src='../../images/pic.png' mode='widthFix'></image>
+    <image bindtap='picClick' style="width: 700rpx;" src='../../images/pic.png' mode='widthFix'></image>
     <view style="font-size: 25rpx;color: #666;text-align: left;margin-left: 20rpx">
       <view>小声哔哔：</view> 
       <view> 
