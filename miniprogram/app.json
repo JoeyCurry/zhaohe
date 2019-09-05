@@ -52,5 +52,6 @@
       }
     ]
   },
-  "cloud": true
+  "cloud": true,
+  "sitemapLocation": "sitemap.json"
 }

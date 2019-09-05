@@ -21,10 +21,11 @@ exports.main = async (event, context) => {
 
 function timestampToTime(timestamp) {
   if (timestamp) {
-    let date = new Date(timestamp);
+    let date = new Date(timestamp + 28800 * 1000);
+    console.log('timestampToTime', date)
     let Y = date.getFullYear() + '-';
     let M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
-    let D = date.getDate() + ' ';
+    let D = addZero(date.getDate()) + ' ';
     let h = addZero(date.getHours());
     let m = addZero(date.getMinutes()) ;
     let s = addZero(date.getSeconds());

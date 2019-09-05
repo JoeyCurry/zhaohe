@@ -146,17 +146,21 @@ Page({
 
   timestampToTime(timestamp) {
     if (timestamp) {
-      let date = new Date(timestamp);
+      let date = new Date(timestamp + 28800 * 1000);
+      console.log('timestampToTime', date)
       let Y = date.getFullYear() + '-';
       let M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
-      let D = date.getDate() + ' ';
-      let h = date.getHours() + ':';
-      let m = date.getMinutes();
-      let s = date.getSeconds();
-      return Y + M + D + h + m;
+      let D = this.addZero(date.getDate()) + ' ';
+      let h = this.addZero(date.getHours());
+      let m = this.addZero(date.getMinutes());
+      let s = this.addZero(date.getSeconds());
+      return Y + M + D + h + ':' + m + ':' + s;
     } else {
       return '您暂无加入时间'
     }
+  },
+  addZero(val) {
+    return val < 10 ? '0' + val : val
   }
 
 })
